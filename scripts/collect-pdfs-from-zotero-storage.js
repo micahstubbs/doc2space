@@ -23,7 +23,6 @@ try {
 console.log('process.env.ZOTERO_STORAGE  ', process.env.ZOTERO_STORAGE)
 let zoteroStorageDir = process.env.ZOTERO_STORAGE
 
-
 if (!zoteroStorageDir) {
   const rl = readline.createInterface({
     input: process.stdin,
@@ -40,7 +39,16 @@ if (!zoteroStorageDir) {
   )
 }
 
+// extra spaces so that output lines up with ENV variable output
 console.log('zoteroStorageDir            ', zoteroStorageDir)
+
+// check if Zotero Storage Dir exists
+try {
+  fs.accessSync(zoteroStorageDir, fs.constants.F_OK)
+  console.log(`${zoteroStorageDir} exists`)
+} catch (err) {
+  console.log(`ERROR ${zoteroStorageDir} does not exist`)
+}
 
 // recursively traverse ZOTERO_STORAGE
 // copy all pdfs to dataDir
