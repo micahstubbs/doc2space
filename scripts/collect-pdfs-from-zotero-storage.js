@@ -1,5 +1,6 @@
 const fs = require('fs')
-readline = require('readline')
+const readline = require('readline')
+const path = require('path')
 
 // check if data dir exists
 // if not, create it
@@ -50,6 +51,43 @@ try {
   console.log(`ERROR ${zoteroStorageDir} does not exist`)
 }
 
-// recursively traverse ZOTERO_STORAGE
-// copy all pdfs to dataDir
-// if names conflict, append some identifier to second file
+// get a list of all child directories
+const getDirectories = srcPath => {
+  return fs
+    .readdirSync(srcPath)
+    .filter(file => fs.lstatSync(path.join(srcPath, file)).isDirectory())
+}
+
+const dirs = getDirectories(zoteroStorageDir).filter(dir => dir !== '.git')
+console.log('dirs', dirs)
+
+const filesHash = {}
+
+// visit every child dir in ZOTERO_STORAGE
+dirs.forEach((dir, i) => {
+  // get a list of all files
+  fs.readdir(`${zoteroStorageDir}/${dir}`, {}, (err, files) => {
+    // console.log('dir', dir)
+    files.forEach(file => {
+      const fileExt = path.extname(file)
+      let newFileName = file
+      if (fileExt === '.pdf') {
+        // if we have already seen a file with the same name
+        // create a new file name for this file with an identifier appended
+        if (filesHash[file]) {
+          newFileName = `${file.slice(0,-4)}-${i}${fileExt}`
+          console.log('newFileName', newFileName)
+        }
+        filesHash[file] = true
+        // console.log('file', file)
+
+        // copy this file to the dataDir
+        const src = `${zoteroStorageDir}/${dir}/${file}`
+        const dest = `${dataDir}/${newFileName}`
+        fs.copyFile(src, dest, {}, err => {
+          if (err) console.log(`ERROR copying file ${src} to ${dest}`)
+        }) 
+      }
+    })
+  })
+})
