@@ -167,7 +167,7 @@ while i < dimensions:
 print(headers)
 
 
-# In[27]:
+# In[46]:
 
 
 # retrieve vectors of all documents in training data
@@ -184,8 +184,7 @@ with open('document-vectors.csv', 'w', newline='', encoding='utf-8') as csvfile:
         doc_name = data[i]
         vec = list(model.docvecs[i])
         row = [doc_name] + vec
-        
-    
+        writer.writerow(row)
         i += 1
 
 
