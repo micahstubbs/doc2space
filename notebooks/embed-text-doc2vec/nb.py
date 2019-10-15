@@ -243,6 +243,8 @@ def stripPath(file):
     return file[11:]
 
 # list(map(stripPath, txt_files))
+
+# y is supposed to be some ground truth categories. got it. 
 df['y'] = list(range(0,len(list(model.docvecs))))
 df['label'] = df['y'].apply(lambda i: str(i))
 
@@ -275,11 +277,11 @@ print('t-SNE done! Time elapsed: {} seconds'.format(time.time()-time_start))
 print(tsne_results[:10])
 
 
-# In[40]:
+# In[50]:
 
 
 # visualize t-SNE projection
-results = pd.DataFrame()
+results = df.copy()
 
 results['tsne-2d-one'] = tsne_results[:,0]
 results['tsne-2d-two'] = tsne_results[:,1]
@@ -287,8 +289,8 @@ results['tsne-2d-two'] = tsne_results[:,1]
 plt.figure(figsize=(16,10))
 sns.scatterplot(
     x="tsne-2d-one", y="tsne-2d-two",
-#     hue="y",
-    palette=sns.color_palette("hls", 2),
+    hue="y",
+    palette=sns.color_palette("hls", 141),
     data=results,
     legend="full",
     alpha=0.3
@@ -305,6 +307,12 @@ print(results[:5])
 
 
 print(results['tsne-2d-two'])
+
+
+# In[46]:
+
+
+print(df['y'])
 
 
 # In[25]:
