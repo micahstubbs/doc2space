@@ -150,8 +150,38 @@ print(model.docvecs['1'])
 # retrieve vectors of all documents in training data
 
 
+# In[29]:
+
+
+# write vectors to a csv file
+
+
+# In[30]:
+
+
+# project from nD to 2D with t-SNE
+
+
+# In[31]:
+
+
+# visualize t-SNE projection
+
+
+# In[32]:
+
+
+# project from nD to 2D with UMAP
+
+
+# In[33]:
+
+
+# visualize UMAP projection
+
+
 # In[ ]:
 
 
-# 
+
 
