@@ -195,16 +195,20 @@ with open('document-vectors.csv', 'w', newline='', encoding='utf-8') as csvfile:
         i += 1
 
 
-# In[35]:
+# In[55]:
 
 
 # read vectors in from csv file
 import csv
 
+imported_vectors = []
+
 with open('document-vectors.csv', newline='') as csvfile:
     reader = csv.reader(csvfile, delimiter=',', quotechar='"')
     for row in reader:
+        imported_vectors.append(row)
         
+print(imported_vectors[0:2])
 
 
 # In[37]:
