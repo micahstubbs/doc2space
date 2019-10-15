@@ -28,10 +28,18 @@ from nltk.tokenize import word_tokenize
 # In[5]:
 
 
-data = ["I love machine learning. Its awesome.",
-        "I love coding in python",
-        "I love building chatbots",
-        "they chat amagingly well"]
+data_dir = ''
+
+# our list of documents
+data = []
+
+
+# In[ ]:
+
+
+import glob
+txt_files = glob.glob(f"{data_dir}/*.txt")
+print(txt_files)
 
 
 # In[8]:

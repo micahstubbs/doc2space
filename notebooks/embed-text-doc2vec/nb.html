@@ -15935,10 +15935,25 @@ nltk                      3.2.4                    py36_0
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;I love machine learning. Its awesome.&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;I love coding in python&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;I love building chatbots&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;they chat amagingly well&quot;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="c1"># our list of documents</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="n">txt_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{data_dir}</span><span class="s2">/*.txt&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">txt_files</span><span class="p">)</span>
 </pre></div>
 
     </div>
