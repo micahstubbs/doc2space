@@ -199,6 +199,12 @@ with open('document-vectors.csv', 'w', newline='', encoding='utf-8') as csvfile:
 
 
 # read vectors in from csv file
+import csv
+
+with open('document-vectors.csv', newline='') as csvfile:
+    reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+    for row in reader:
+        
 
 
 # In[37]:
