@@ -161,8 +161,8 @@ print(dimensions)
 # write vectors to a csv file
 import csv
 
-with open('document-vectors.csv', 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile, delimiter=' ')
+with open('document-vectors.csv', 'w', newline='', encoding='utf-8') as csvfile:
+    writer = csv.writer(csvfile, delimiter=',', quotechar='"')
     index_count = len(data)-1
     i = 0
     while i <= index_count:
