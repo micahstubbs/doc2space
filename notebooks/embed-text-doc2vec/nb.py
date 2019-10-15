@@ -7,7 +7,7 @@
 
 # first, let's install some dependencies. a guide to doing this: https://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter/
 
-# In[24]:
+# In[1]:
 
 
 # Install a conda package in the current Jupyter kernel
@@ -15,7 +15,7 @@ import sys
 get_ipython().system('conda install --yes --prefix {sys.prefix} gensim nltk')
 
 
-# In[25]:
+# In[2]:
 
 
 #Import all the dependencies
@@ -25,7 +25,7 @@ from nltk.tokenize import word_tokenize
 
 # Let’s prepare data for training our doc2vec model
 
-# In[26]:
+# In[3]:
 
 
 data_dir = '../../data/'
@@ -34,7 +34,7 @@ data_dir = '../../data/'
 data = []
 
 
-# In[27]:
+# In[4]:
 
 
 import glob
@@ -42,14 +42,14 @@ txt_files = glob.glob(f"{data_dir}/*.txt")
 print(len(txt_files))
 
 
-# In[28]:
+# In[5]:
 
 
 # should an example of just the filename without the path
 txt_files[0][11:]
 
 
-# In[29]:
+# In[6]:
 
 
 for file in txt_files:
@@ -61,7 +61,7 @@ for file in txt_files:
 print(len(data))
 
 
-# In[30]:
+# In[7]:
 
 
 from random import randrange
@@ -120,7 +120,7 @@ print("Model d2v.model Saved")
 # 
 # So we have saved the model and it’s ready for implementation. Lets play with it.
 
-# In[31]:
+# In[8]:
 
 
 from gensim.models.doc2vec import Doc2Vec
@@ -134,7 +134,7 @@ print("V1_infer", v1)
 
 
 
-# In[32]:
+# In[9]:
 
 
 # to find most similar doc using tags
@@ -142,7 +142,7 @@ similar_doc = model.docvecs.most_similar('1')
 print(similar_doc)
 
 
-# In[33]:
+# In[10]:
 
 
 # to find vector of doc in training data using tags
@@ -151,7 +151,7 @@ print(similar_doc)
 print(model.docvecs['1'])
 
 
-# In[34]:
+# In[11]:
 
 
 # how many dimensions does our doc2vec document space have?
@@ -161,7 +161,7 @@ print(dimensions)
 
 # Cool! This dimensionality is determined by the `vec_size` parameter we specified at training time.
 
-# In[35]:
+# In[12]:
 
 
 # create column headers for csv file
@@ -174,7 +174,7 @@ while i < dimensions:
 print(headers)
 
 
-# In[36]:
+# In[13]:
 
 
 # retrieve vectors of all documents in training data
@@ -195,7 +195,7 @@ with open('document-vectors.csv', 'w', newline='', encoding='utf-8') as csvfile:
         i += 1
 
 
-# In[37]:
+# In[14]:
 
 
 # read vectors in from csv file
@@ -211,7 +211,7 @@ with open('document-vectors.csv', newline='') as csvfile:
 print(imported_vectors[0:2])
 
 
-# In[38]:
+# In[19]:
 
 
 # project from 20D to 2D with t-SNE
@@ -228,13 +228,13 @@ from mpl_toolkits.mplot3d import Axes3D
 import seaborn as sns
 
 
-# In[39]:
+# In[20]:
 
 
 model.docvecs
 
 
-# In[40]:
+# In[21]:
 
 
 df = pd.DataFrame(list(model.docvecs))
@@ -251,7 +251,7 @@ df['label'] = df['y'].apply(lambda i: str(i))
 print('Size of the dataframe: {}'.format(df.shape))
 
 
-# In[41]:
+# In[22]:
 
 
 # For reproducibility of the results
@@ -260,7 +260,7 @@ np.random.seed(42)
 rndperm = np.random.permutation(df.shape[0])
 
 
-# In[42]:
+# In[23]:
 
 
 time_start = time.time()
@@ -269,7 +269,13 @@ tsne_results = tsne.fit_transform(df)
 print('t-SNE done! Time elapsed: {} seconds'.format(time.time()-time_start))
 
 
-# In[44]:
+# In[39]:
+
+
+print(tsne_results[:10])
+
+
+# In[40]:
 
 
 # visualize t-SNE projection
@@ -281,28 +287,27 @@ results['tsne-2d-two'] = tsne_results[:,1]
 plt.figure(figsize=(16,10))
 sns.scatterplot(
     x="tsne-2d-one", y="tsne-2d-two",
-    hue="y",
-    palette=sns.color_palette("hls", 10),
+#     hue="y",
+    palette=sns.color_palette("hls", 2),
     data=results,
     legend="full",
     alpha=0.3
 )
 
-# plt.figure(figsize=(16,10))
-# sns.lmplot(
-#     x="tsne-2d-one", y="tsne-2d-two",
-#     hue="y",
-#     palette=sns.color_palette("hls", 10),
-#     data=results,
-#     legend="full",
-#     alpha=0.3,
-#     fit_reg=False,
-#     scatter_kws={"marker": "D", # Set marker style
-#                            "s": 100} # S marker size
-# )
+
+# In[41]:
 
 
-# In[38]:
+print(results[:5])
+
+
+# In[42]:
+
+
+print(results['tsne-2d-two'])
+
+
+# In[25]:
 
 
 # project from 20D to 2D with UMAP
