@@ -289,7 +289,7 @@ results['tsne-2d-two'] = tsne_results[:,1]
 plt.figure(figsize=(16,10))
 sns.scatterplot(
     x="tsne-2d-one", y="tsne-2d-two",
-    hue="y",
+#     hue="y",
     palette=sns.color_palette("hls", 141),
     data=results,
     legend="full",
