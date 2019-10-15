@@ -42,7 +42,7 @@ txt_files = glob.glob(f"{data_dir}/*.txt")
 print(len(txt_files))
 
 
-# In[ ]:
+# In[11]:
 
 
 for file in txt_files:
@@ -51,7 +51,17 @@ for file in txt_files:
         data.append(currentText)
         file.close()
 
-        
+print(len(data))
+
+
+# In[18]:
+
+
+from random import randrange
+random_index = randrange(len(data)-1)
+
+# print the first 1000 words of a random document from our corpus
+print(data[random_index][0:1000])
 
 
 # In[8]:

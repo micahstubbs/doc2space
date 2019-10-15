@@ -15981,7 +15981,7 @@ nltk                      3.2.4                    py36_0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">txt_files</span><span class="p">:</span>
@@ -15990,10 +15990,79 @@ nltk                      3.2.4                    py36_0
         <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">currentText</span><span class="p">)</span>
         <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-        
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>141
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="k">import</span> <span class="n">randrange</span>
+<span class="n">random_index</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># print the first 1000 words of a random document from our corpus</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">random_index</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Information Processing and Management 35 (1999) 401±420
+
+Visualising semantic spaces and author co-citation networks
+p
+in digital libraries
+Chaomei Chen*
+Department of Information Systems and Computing, Brunel University, Uxbridge UB8 3PH, UK
+
+Abstract
+This paper describes the development and application of visualisation techniques for users to access
+and explore information in a digital library eectively and intuitively. Salient semantic structures and
+citation patterns are extracted from several collections of documents, including the ACM SIGCHI
+Conference Proceedings (1995±1997) and ACM Hypertext Conference Proceedings (1987±1998), using
+Latent Semantic Indexing and Path®nder Network Scaling. The unique spatial metaphor leads to a
+natural combination of search and navigation within the same semantic space in a 3-dimensional virtual
+world. Author co-citation patterns are visualised through a number of author co-citation maps in
+attempts to reveal the structure of the hypertext, incl
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
