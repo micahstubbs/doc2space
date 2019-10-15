@@ -42,10 +42,11 @@ txt_files = glob.glob(f"{data_dir}/*.txt")
 print(len(txt_files))
 
 
-# In[50]:
+# In[51]:
 
 
-#txt_files[0][11:]
+# should an example of just the filename without the path
+txt_files[0][11:]
 
 
 # In[11]:
@@ -173,7 +174,7 @@ while i < dimensions:
 print(headers)
 
 
-# In[46]:
+# In[52]:
 
 
 # retrieve vectors of all documents in training data
@@ -187,7 +188,7 @@ with open('document-vectors.csv', 'w', newline='', encoding='utf-8') as csvfile:
     index_count = len(data)-1
     i = 0
     while i <= index_count:
-        doc_name = data[i]
+        doc_name = txt_files[i][11:]
         vec = list(model.docvecs[i])
         row = [doc_name] + vec
         writer.writerow(row)
