@@ -144,13 +144,15 @@ print(similar_doc)
 print(model.docvecs['1'])
 
 
-# In[39]:
+# In[41]:
 
 
 # how many dimensions does our doc2vec document space have?
 dimensions = len(model.docvecs['1'])
 print(dimensions)
 
+
+# Cool! This dimensionality is determined by the `vec_size` parameter we specified at training time.
 
 # In[27]:
 
