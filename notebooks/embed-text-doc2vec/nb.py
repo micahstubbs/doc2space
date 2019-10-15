@@ -54,17 +54,17 @@ for file in txt_files:
 print(len(data))
 
 
-# In[18]:
+# In[19]:
 
 
 from random import randrange
 random_index = randrange(len(data)-1)
 
-# print the first 1000 words of a random document from our corpus
+# print the first 1000 characters of a random document from our corpus
 print(data[random_index][0:1000])
 
 
-# In[8]:
+# In[20]:
 
 
 tagged_data = [TaggedDocument(words=word_tokenize(_d.lower()), 
@@ -73,7 +73,7 @@ tagged_data = [TaggedDocument(words=word_tokenize(_d.lower()),
 
 # Here we have a list of four sentences as training data. Now I have tagged the data and its ready for training. Lets start training our model.
 
-# In[9]:
+# In[21]:
 
 
 max_epochs = 100
@@ -86,13 +86,13 @@ model = Doc2Vec(size=vec_size,
                 dm=1)
 
 
-# In[11]:
+# In[22]:
 
 
 model.build_vocab(tagged_data)
 
 
-# In[12]:
+# In[ ]:
 
 
 for epoch in range(max_epochs):

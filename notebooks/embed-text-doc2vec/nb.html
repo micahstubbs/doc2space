@@ -16018,13 +16018,13 @@ nltk                      3.2.4                    py36_0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="k">import</span> <span class="n">randrange</span>
 <span class="n">random_index</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="c1"># print the first 1000 words of a random document from our corpus</span>
+<span class="c1"># print the first 1000 characters of a random document from our corpus</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">random_index</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">])</span>
 </pre></div>
 
@@ -16042,23 +16042,34 @@ nltk                      3.2.4                    py36_0
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Information Processing and Management 35 (1999) 401±420
+<pre>Bubbleworld
+A New Visual Information Retrieval Technique
+Christopher Van Berendonck
 
-Visualising semantic spaces and author co-citation networks
-p
-in digital libraries
-Chaomei Chen*
-Department of Information Systems and Computing, Brunel University, Uxbridge UB8 3PH, UK
+Timothy Jacobs
+
+Chris.Vanberendonck@defence.gov.au
+
+Timothy.Jacobs@afit.edu
+
+Air Force Institute of Technology
+Wright-Patterson Air Force Base
+Ohio 45433 USA
 
 Abstract
-This paper describes the development and application of visualisation techniques for users to access
-and explore information in a digital library eectively and intuitively. Salient semantic structures and
-citation patterns are extracted from several collections of documents, including the ACM SIGCHI
-Conference Proceedings (1995±1997) and ACM Hypertext Conference Proceedings (1987±1998), using
-Latent Semantic Indexing and Path®nder Network Scaling. The unique spatial metaphor leads to a
-natural combination of search and navigation within the same semantic space in a 3-dimensional virtual
-world. Author co-citation patterns are visualised through a number of author co-citation maps in
-attempts to reveal the structure of the hypertext, incl
+Visualisation has significant advantages over traditional textual
+lists for improving cognition in information retrieval. To realise
+these advantages, we identify a set of cognitive principles and
+usage patterns for information retrieval. We apply these
+principles and patterns to the design of a prototype visual
+information retrieval system, Bubbleworld. In Bubbleworld, we
+apply a variety of visual techniques that successfully transform
+the internal mental representations of the information retrieval
+problem to an efficient external view and, through visual cues,
+provide cognitive amplification at key stages of the information
+retrieval process. We enhance the knowledge acquisition
+process by providing query refinement and interaction
+te
 </pre>
 </div>
 </div>
@@ -16069,7 +16080,7 @@ attempts to reveal the structure of the hypertext, incl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tagged_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">TaggedDocument</span><span class="p">(</span><span class="n">words</span><span class="o">=</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">_d</span><span class="o">.</span><span class="n">lower</span><span class="p">()),</span> 
@@ -16091,7 +16102,7 @@ attempts to reveal the structure of the hypertext, incl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">max_epochs</span> <span class="o">=</span> <span class="mi">100</span>
@@ -16111,7 +16122,7 @@ attempts to reveal the structure of the hypertext, incl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">build_vocab</span><span class="p">(</span><span class="n">tagged_data</span><span class="p">)</span>
@@ -16124,7 +16135,7 @@ attempts to reveal the structure of the hypertext, incl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_epochs</span><span class="p">):</span>
@@ -16174,88 +16185,6 @@ iteration 15
 iteration 16
 iteration 17
 iteration 18
-iteration 19
-iteration 20
-iteration 21
-iteration 22
-iteration 23
-iteration 24
-iteration 25
-iteration 26
-iteration 27
-iteration 28
-iteration 29
-iteration 30
-iteration 31
-iteration 32
-iteration 33
-iteration 34
-iteration 35
-iteration 36
-iteration 37
-iteration 38
-iteration 39
-iteration 40
-iteration 41
-iteration 42
-iteration 43
-iteration 44
-iteration 45
-iteration 46
-iteration 47
-iteration 48
-iteration 49
-iteration 50
-iteration 51
-iteration 52
-iteration 53
-iteration 54
-iteration 55
-iteration 56
-iteration 57
-iteration 58
-iteration 59
-iteration 60
-iteration 61
-iteration 62
-iteration 63
-iteration 64
-iteration 65
-iteration 66
-iteration 67
-iteration 68
-iteration 69
-iteration 70
-iteration 71
-iteration 72
-iteration 73
-iteration 74
-iteration 75
-iteration 76
-iteration 77
-iteration 78
-iteration 79
-iteration 80
-iteration 81
-iteration 82
-iteration 83
-iteration 84
-iteration 85
-iteration 86
-iteration 87
-iteration 88
-iteration 89
-iteration 90
-iteration 91
-iteration 92
-iteration 93
-iteration 94
-iteration 95
-iteration 96
-iteration 97
-iteration 98
-iteration 99
-Model d2v.model Saved
 </pre>
 </div>
 </div>
