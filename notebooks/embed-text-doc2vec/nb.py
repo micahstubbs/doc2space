@@ -113,7 +113,7 @@ print("Model d2v.model Saved")
 # 
 # So we have saved the model and it’s ready for implementation. Lets play with it.
 
-# In[13]:
+# In[24]:
 
 
 from gensim.models.doc2vec import Doc2Vec
@@ -127,7 +127,7 @@ print("V1_infer", v1)
 
 
 
-# In[14]:
+# In[25]:
 
 
 # to find most similar doc using tags
@@ -135,7 +135,7 @@ similar_doc = model.docvecs.most_similar('1')
 print(similar_doc)
 
 
-# In[15]:
+# In[26]:
 
 
 # to find vector of doc in training data using tags
