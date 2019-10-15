@@ -154,13 +154,17 @@ print(dimensions)
 
 # Cool! This dimensionality is determined by the `vec_size` parameter we specified at training time.
 
-# In[ ]:
+# In[45]:
 
 
 # create column headers for csv file
 headers = ['doc']
-i =
-while 
+i = 0
+while i < dimensions:
+    headers.append(f"v{i}")
+    i+=1
+    
+print(headers)
 
 
 # In[27]:
@@ -178,7 +182,9 @@ with open('document-vectors.csv', 'w', newline='', encoding='utf-8') as csvfile:
     i = 0
     while i <= index_count:
         doc_name = data[i]
-        vec = model.docvecs[i]
+        vec = list(model.docvecs[i])
+        row = [doc_name] + vec
+        
     
         i += 1
 
