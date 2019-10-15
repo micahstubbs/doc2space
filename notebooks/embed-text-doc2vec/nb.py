@@ -7,7 +7,7 @@
 
 # first, let's install some dependencies. a guide to doing this: https://jakevdp.github.io/blog/2017/12/05/installing-python-packages-from-jupyter/
 
-# In[1]:
+# In[24]:
 
 
 # Install a conda package in the current Jupyter kernel
@@ -15,7 +15,7 @@ import sys
 get_ipython().system('conda install --yes --prefix {sys.prefix} gensim nltk')
 
 
-# In[1]:
+# In[25]:
 
 
 #Import all the dependencies
@@ -25,7 +25,7 @@ from nltk.tokenize import word_tokenize
 
 # Let’s prepare data for training our doc2vec model
 
-# In[2]:
+# In[26]:
 
 
 data_dir = '../../data/'
@@ -34,7 +34,7 @@ data_dir = '../../data/'
 data = []
 
 
-# In[3]:
+# In[27]:
 
 
 import glob
@@ -42,14 +42,14 @@ txt_files = glob.glob(f"{data_dir}/*.txt")
 print(len(txt_files))
 
 
-# In[4]:
+# In[28]:
 
 
 # should an example of just the filename without the path
 txt_files[0][11:]
 
 
-# In[5]:
+# In[29]:
 
 
 for file in txt_files:
@@ -61,7 +61,7 @@ for file in txt_files:
 print(len(data))
 
 
-# In[6]:
+# In[30]:
 
 
 from random import randrange
@@ -120,7 +120,7 @@ print("Model d2v.model Saved")
 # 
 # So we have saved the model and it’s ready for implementation. Lets play with it.
 
-# In[11]:
+# In[31]:
 
 
 from gensim.models.doc2vec import Doc2Vec
@@ -134,7 +134,7 @@ print("V1_infer", v1)
 
 
 
-# In[12]:
+# In[32]:
 
 
 # to find most similar doc using tags
@@ -142,7 +142,7 @@ similar_doc = model.docvecs.most_similar('1')
 print(similar_doc)
 
 
-# In[13]:
+# In[33]:
 
 
 # to find vector of doc in training data using tags
@@ -151,7 +151,7 @@ print(similar_doc)
 print(model.docvecs['1'])
 
 
-# In[14]:
+# In[34]:
 
 
 # how many dimensions does our doc2vec document space have?
@@ -161,7 +161,7 @@ print(dimensions)
 
 # Cool! This dimensionality is determined by the `vec_size` parameter we specified at training time.
 
-# In[15]:
+# In[35]:
 
 
 # create column headers for csv file
@@ -174,7 +174,7 @@ while i < dimensions:
 print(headers)
 
 
-# In[16]:
+# In[36]:
 
 
 # retrieve vectors of all documents in training data
@@ -195,7 +195,7 @@ with open('document-vectors.csv', 'w', newline='', encoding='utf-8') as csvfile:
         i += 1
 
 
-# In[56]:
+# In[37]:
 
 
 # read vectors in from csv file
@@ -211,7 +211,7 @@ with open('document-vectors.csv', newline='') as csvfile:
 print(imported_vectors[0:2])
 
 
-# In[5]:
+# In[38]:
 
 
 # project from 20D to 2D with t-SNE
@@ -228,13 +228,13 @@ from mpl_toolkits.mplot3d import Axes3D
 import seaborn as sns
 
 
-# In[6]:
+# In[39]:
 
 
 model.docvecs
 
 
-# In[7]:
+# In[40]:
 
 
 df = pd.DataFrame(list(model.docvecs))
@@ -251,7 +251,7 @@ df['label'] = df['y'].apply(lambda i: str(i))
 print('Size of the dataframe: {}'.format(df.shape))
 
 
-# In[42]:
+# In[41]:
 
 
 # For reproducibility of the results
@@ -260,7 +260,7 @@ np.random.seed(42)
 rndperm = np.random.permutation(df.shape[0])
 
 
-# In[43]:
+# In[42]:
 
 
 time_start = time.time()
@@ -269,7 +269,7 @@ tsne_results = tsne.fit_transform(df)
 print('t-SNE done! Time elapsed: {} seconds'.format(time.time()-time_start))
 
 
-# In[4]:
+# In[44]:
 
 
 # visualize t-SNE projection
@@ -278,28 +278,28 @@ results = pd.DataFrame()
 results['tsne-2d-one'] = tsne_results[:,0]
 results['tsne-2d-two'] = tsne_results[:,1]
 
-# plt.figure(figsize=(16,10))
-# sns.scatterplot(
-#     x="tsne-2d-one", y="tsne-2d-two",
-#     hue="y",
-#     palette=sns.color_palette("hls", 10),
-#     data=results,
-#     legend="full",
-#     alpha=0.3
-# )
-
 plt.figure(figsize=(16,10))
-sns.lmplot(
+sns.scatterplot(
     x="tsne-2d-one", y="tsne-2d-two",
     hue="y",
     palette=sns.color_palette("hls", 10),
     data=results,
     legend="full",
-    alpha=0.3,
-    fit_reg=False,
-    scatter_kws={"marker": "D", # Set marker style
-                           "s": 100} # S marker size
+    alpha=0.3
 )
+
+# plt.figure(figsize=(16,10))
+# sns.lmplot(
+#     x="tsne-2d-one", y="tsne-2d-two",
+#     hue="y",
+#     palette=sns.color_palette("hls", 10),
+#     data=results,
+#     legend="full",
+#     alpha=0.3,
+#     fit_reg=False,
+#     scatter_kws={"marker": "D", # Set marker style
+#                            "s": 100} # S marker size
+# )
 
 
 # In[38]:
