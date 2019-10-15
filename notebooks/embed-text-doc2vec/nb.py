@@ -42,6 +42,12 @@ txt_files = glob.glob(f"{data_dir}/*.txt")
 print(len(txt_files))
 
 
+# In[50]:
+
+
+#txt_files[0][11:]
+
+
 # In[11]:
 
 
