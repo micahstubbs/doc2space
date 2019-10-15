@@ -16157,7 +16157,7 @@ all data points will overload the visualization, resulting in ch
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_epochs</span><span class="p">):</span>
@@ -16200,6 +16200,95 @@ iteration 8
 iteration 9
 iteration 10
 iteration 11
+iteration 12
+iteration 13
+iteration 14
+iteration 15
+iteration 16
+iteration 17
+iteration 18
+iteration 19
+iteration 20
+iteration 21
+iteration 22
+iteration 23
+iteration 24
+iteration 25
+iteration 26
+iteration 27
+iteration 28
+iteration 29
+iteration 30
+iteration 31
+iteration 32
+iteration 33
+iteration 34
+iteration 35
+iteration 36
+iteration 37
+iteration 38
+iteration 39
+iteration 40
+iteration 41
+iteration 42
+iteration 43
+iteration 44
+iteration 45
+iteration 46
+iteration 47
+iteration 48
+iteration 49
+iteration 50
+iteration 51
+iteration 52
+iteration 53
+iteration 54
+iteration 55
+iteration 56
+iteration 57
+iteration 58
+iteration 59
+iteration 60
+iteration 61
+iteration 62
+iteration 63
+iteration 64
+iteration 65
+iteration 66
+iteration 67
+iteration 68
+iteration 69
+iteration 70
+iteration 71
+iteration 72
+iteration 73
+iteration 74
+iteration 75
+iteration 76
+iteration 77
+iteration 78
+iteration 79
+iteration 80
+iteration 81
+iteration 82
+iteration 83
+iteration 84
+iteration 85
+iteration 86
+iteration 87
+iteration 88
+iteration 89
+iteration 90
+iteration 91
+iteration 92
+iteration 93
+iteration 94
+iteration 95
+iteration 96
+iteration 97
+iteration 98
+iteration 99
+Model d2v.model Saved
 </pre>
 </div>
 </div>
@@ -16219,7 +16308,7 @@ iteration 11
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">gensim.models.doc2vec</span> <span class="k">import</span> <span class="n">Doc2Vec</span>
@@ -16236,10 +16325,31 @@ iteration 11
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>V1_infer [-0.05315243  0.15070046  0.0249238  -0.11311816 -0.03199848 -0.04710091
+ -0.03913097  0.08789978 -0.02645869 -0.00255124  0.15403078 -0.16651161
+  0.17035538  0.01202741 -0.00514478 -0.08900966  0.00446956  0.15910985
+ -0.03648923 -0.00031103]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># to find most similar doc using tags</span>
@@ -16251,10 +16361,28 @@ iteration 11
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[(&#39;70&#39;, 0.9870254397392273), (&#39;84&#39;, 0.9709815979003906), (&#39;7&#39;, 0.96864914894104), (&#39;94&#39;, 0.960952639579773), (&#39;72&#39;, 0.9577339291572571), (&#39;14&#39;, 0.9566090106964111), (&#39;18&#39;, 0.953985333442688), (&#39;82&#39;, 0.9523268938064575), (&#39;97&#39;, 0.9513706564903259), (&#39;0&#39;, 0.9446595907211304)]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># to find vector of doc in training data using tags</span>
@@ -16267,10 +16395,31 @@ iteration 11
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[ -9.342972  -17.231485  -16.349152   17.070536    8.355379   -3.7523832
+  13.2250395 -11.772013    6.22972    11.040406  -12.797823   -1.3005092
+ -17.47004    -5.203946    4.065793   -2.5147984   5.3141646 -10.981502
+  16.272821   -1.7505883]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># how many dimensions does our doc2vec document space have?</span>
@@ -16279,6 +16428,24 @@ iteration 11
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>20
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -16293,7 +16460,7 @@ iteration 11
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create column headers for csv file</span>
@@ -16310,10 +16477,28 @@ iteration 11
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;doc&#39;, &#39;v0&#39;, &#39;v1&#39;, &#39;v2&#39;, &#39;v3&#39;, &#39;v4&#39;, &#39;v5&#39;, &#39;v6&#39;, &#39;v7&#39;, &#39;v8&#39;, &#39;v9&#39;, &#39;v10&#39;, &#39;v11&#39;, &#39;v12&#39;, &#39;v13&#39;, &#39;v14&#39;, &#39;v15&#39;, &#39;v16&#39;, &#39;v17&#39;, &#39;v18&#39;, &#39;v19&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># retrieve vectors of all documents in training data</span>
@@ -16382,7 +16567,7 @@ iteration 11
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># project from 20D to 2D with t-SNE</span>
@@ -16406,10 +16591,100 @@ iteration 11
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">docvecs</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-6-e0f7e7421272&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>model<span class="ansi-blue-fg">.</span>docvecs
+
+<span class="ansi-red-fg">NameError</span>: name &#39;model&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">docvecs</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">stripPath</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">file</span><span class="p">[</span><span class="mi">11</span><span class="p">:]</span>
+
+<span class="c1"># list(map(stripPath, txt_files))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">docvecs</span><span class="p">))))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+<span class="c1"># X, y = None, None</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Size of the dataframe: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-7-75b967d17a03&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>df <span class="ansi-blue-fg">=</span> pd<span class="ansi-blue-fg">.</span>DataFrame<span class="ansi-blue-fg">(</span>list<span class="ansi-blue-fg">(</span>model<span class="ansi-blue-fg">.</span>docvecs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> 
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">def</span> stripPath<span class="ansi-blue-fg">(</span>file<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">return</span> file<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">11</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> 
+
+<span class="ansi-red-fg">NameError</span>: name &#39;model&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># For reproducibility of the results</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">rndperm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -16419,13 +16694,108 @@ iteration 11
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># visualize t-SNE projection</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">time_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">tsne</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">perplexity</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">tsne_results</span> <span class="o">=</span> <span class="n">tsne</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;t-SNE done! Time elapsed: </span><span class="si">{}</span><span class="s1"> seconds&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">time_start</span><span class="p">))</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[t-SNE] Computing 121 nearest neighbors...
+[t-SNE] Indexed 141 samples in 0.000s...
+[t-SNE] Computed neighbors for 141 samples in 0.003s...
+[t-SNE] Computed conditional probabilities for sample 141 / 141
+[t-SNE] Mean sigma: 26.328567
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 51.034737
+[t-SNE] KL divergence after 300 iterations: 0.137496
+t-SNE done! Time elapsed: 0.26351213455200195 seconds
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># visualize t-SNE projection</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="n">results</span><span class="p">[</span><span class="s1">&#39;tsne-2d-one&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tsne_results</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">results</span><span class="p">[</span><span class="s1">&#39;tsne-2d-two&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tsne_results</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># plt.figure(figsize=(16,10))</span>
+<span class="c1"># sns.scatterplot(</span>
+<span class="c1">#     x=&quot;tsne-2d-one&quot;, y=&quot;tsne-2d-two&quot;,</span>
+<span class="c1">#     hue=&quot;y&quot;,</span>
+<span class="c1">#     palette=sns.color_palette(&quot;hls&quot;, 10),</span>
+<span class="c1">#     data=results,</span>
+<span class="c1">#     legend=&quot;full&quot;,</span>
+<span class="c1">#     alpha=0.3</span>
+<span class="c1"># )</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;tsne-2d-one&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tsne-2d-two&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;hls&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">results</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+    <span class="n">fit_reg</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;marker&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="c1"># Set marker style</span>
+                           <span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span> <span class="c1"># S marker size</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-97a3db4e84e6&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> results <span class="ansi-blue-fg">=</span> pd<span class="ansi-blue-fg">.</span>DataFrame<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> 
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span>results<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;tsne-2d-one&#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> tsne_results<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> results<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;tsne-2d-two&#39;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> tsne_results<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> 
+
+<span class="ansi-red-fg">NameError</span>: name &#39;tsne_results&#39; is not defined</pre>
+</div>
+</div>
+
 </div>
 </div>
 

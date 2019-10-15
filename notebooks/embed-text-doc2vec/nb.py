@@ -99,7 +99,7 @@ model = Doc2Vec(size=vec_size,
 model.build_vocab(tagged_data)
 
 
-# In[ ]:
+# In[10]:
 
 
 for epoch in range(max_epochs):
@@ -120,7 +120,7 @@ print("Model d2v.model Saved")
 # 
 # So we have saved the model and it’s ready for implementation. Lets play with it.
 
-# In[ ]:
+# In[11]:
 
 
 from gensim.models.doc2vec import Doc2Vec
@@ -134,7 +134,7 @@ print("V1_infer", v1)
 
 
 
-# In[ ]:
+# In[12]:
 
 
 # to find most similar doc using tags
@@ -142,7 +142,7 @@ similar_doc = model.docvecs.most_similar('1')
 print(similar_doc)
 
 
-# In[ ]:
+# In[13]:
 
 
 # to find vector of doc in training data using tags
@@ -151,7 +151,7 @@ print(similar_doc)
 print(model.docvecs['1'])
 
 
-# In[ ]:
+# In[14]:
 
 
 # how many dimensions does our doc2vec document space have?
@@ -161,7 +161,7 @@ print(dimensions)
 
 # Cool! This dimensionality is determined by the `vec_size` parameter we specified at training time.
 
-# In[ ]:
+# In[15]:
 
 
 # create column headers for csv file
@@ -174,7 +174,7 @@ while i < dimensions:
 print(headers)
 
 
-# In[ ]:
+# In[16]:
 
 
 # retrieve vectors of all documents in training data
@@ -211,7 +211,7 @@ with open('document-vectors.csv', newline='') as csvfile:
 print(imported_vectors[0:2])
 
 
-# In[37]:
+# In[5]:
 
 
 # project from 20D to 2D with t-SNE
@@ -228,16 +228,78 @@ from mpl_toolkits.mplot3d import Axes3D
 import seaborn as sns
 
 
-# In[ ]:
+# In[6]:
 
 
+model.docvecs
 
 
+# In[7]:
 
-# In[31]:
+
+df = pd.DataFrame(list(model.docvecs))
+
+def stripPath(file):
+    return file[11:]
+
+# list(map(stripPath, txt_files))
+df['y'] = list(range(0,len(list(model.docvecs))))
+df['label'] = df['y'].apply(lambda i: str(i))
+
+# X, y = None, None
+
+print('Size of the dataframe: {}'.format(df.shape))
+
+
+# In[42]:
+
+
+# For reproducibility of the results
+np.random.seed(42)
+
+rndperm = np.random.permutation(df.shape[0])
+
+
+# In[43]:
+
+
+time_start = time.time()
+tsne = TSNE(n_components=2, verbose=1, perplexity=40, n_iter=300)
+tsne_results = tsne.fit_transform(df)
+print('t-SNE done! Time elapsed: {} seconds'.format(time.time()-time_start))
+
+
+# In[4]:
 
 
 # visualize t-SNE projection
+results = pd.DataFrame()
+
+results['tsne-2d-one'] = tsne_results[:,0]
+results['tsne-2d-two'] = tsne_results[:,1]
+
+# plt.figure(figsize=(16,10))
+# sns.scatterplot(
+#     x="tsne-2d-one", y="tsne-2d-two",
+#     hue="y",
+#     palette=sns.color_palette("hls", 10),
+#     data=results,
+#     legend="full",
+#     alpha=0.3
+# )
+
+plt.figure(figsize=(16,10))
+sns.lmplot(
+    x="tsne-2d-one", y="tsne-2d-two",
+    hue="y",
+    palette=sns.color_palette("hls", 10),
+    data=results,
+    legend="full",
+    alpha=0.3,
+    fit_reg=False,
+    scatter_kws={"marker": "D", # Set marker style
+                           "s": 100} # S marker size
+)
 
 
 # In[38]:
