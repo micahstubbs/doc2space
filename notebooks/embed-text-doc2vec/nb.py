@@ -158,13 +158,16 @@ print(dimensions)
 
 
 # retrieve vectors of all documents in training data
-index_count = len(data)-1
-i = 0
-while i <= index_count:
-    
 
 
-# In[34]:
+# index_count = len(data)-1
+# i = 0
+# while i <= index_count:
+        
+#     i += 1
+
+
+# In[43]:
 
 
 # write vectors to a csv file
