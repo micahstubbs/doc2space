@@ -144,8 +144,14 @@ print(similar_doc)
 print(model.docvecs['1'])
 
 
+# In[27]:
+
+
+# retrieve vectors of all documents in training data
+
+
 # In[ ]:
 
 
-
+# 
 
