@@ -158,6 +158,10 @@ print(dimensions)
 
 
 # retrieve vectors of all documents in training data
+index_count = len(data)-1
+i = 0
+while i <= index_count:
+    
 
 
 # In[34]:
