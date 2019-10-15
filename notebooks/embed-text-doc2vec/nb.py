@@ -144,16 +144,28 @@ print(similar_doc)
 print(model.docvecs['1'])
 
 
+# In[ ]:
+
+
+len(model.docvecs['1'])
+
+
 # In[27]:
 
 
 # retrieve vectors of all documents in training data
 
 
-# In[29]:
+# In[34]:
 
 
 # write vectors to a csv file
+
+
+# In[35]:
+
+
+# read vectors in from csv file
 
 
 # In[30]:
@@ -178,10 +190,4 @@ print(model.docvecs['1'])
 
 
 # visualize UMAP projection
-
-
-# In[ ]:
-
-
-
 
