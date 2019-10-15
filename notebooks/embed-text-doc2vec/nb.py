@@ -92,7 +92,7 @@ model = Doc2Vec(size=vec_size,
 model.build_vocab(tagged_data)
 
 
-# In[ ]:
+# In[23]:
 
 
 for epoch in range(max_epochs):
