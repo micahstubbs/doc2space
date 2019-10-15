@@ -16397,13 +16397,33 @@ Model d2v.model Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">docvecs</span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># how many dimensions does our doc2vec document space have?</span>
+<span class="n">dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">docvecs</span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>20
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -16449,10 +16469,10 @@ Model d2v.model Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># project from nD to 2D with t-SNE</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># project from 20D to 2D with t-SNE</span>
 </pre></div>
 
     </div>
@@ -16475,10 +16495,10 @@ Model d2v.model Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># project from nD to 2D with UMAP</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># project from 20D to 2D with UMAP</span>
 </pre></div>
 
     </div>

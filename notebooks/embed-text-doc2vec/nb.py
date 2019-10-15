@@ -144,10 +144,12 @@ print(similar_doc)
 print(model.docvecs['1'])
 
 
-# In[ ]:
+# In[39]:
 
 
-len(model.docvecs['1'])
+# how many dimensions does our doc2vec document space have?
+dimensions = len(model.docvecs['1'])
+print(dimensions)
 
 
 # In[27]:
@@ -168,10 +170,10 @@ len(model.docvecs['1'])
 # read vectors in from csv file
 
 
-# In[30]:
+# In[37]:
 
 
-# project from nD to 2D with t-SNE
+# project from 20D to 2D with t-SNE
 
 
 # In[31]:
@@ -180,10 +182,10 @@ len(model.docvecs['1'])
 # visualize t-SNE projection
 
 
-# In[32]:
+# In[38]:
 
 
-# project from nD to 2D with UMAP
+# project from 20D to 2D with UMAP
 
 
 # In[33]:
