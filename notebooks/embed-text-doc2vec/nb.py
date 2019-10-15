@@ -25,21 +25,33 @@ from nltk.tokenize import word_tokenize
 
 # Let’s prepare data for training our doc2vec model
 
-# In[5]:
+# In[6]:
 
 
-data_dir = ''
+data_dir = '../../data/'
 
 # our list of documents
 data = []
 
 
-# In[ ]:
+# In[10]:
 
 
 import glob
 txt_files = glob.glob(f"{data_dir}/*.txt")
-print(txt_files)
+print(len(txt_files))
+
+
+# In[ ]:
+
+
+for file in txt_files:
+    with open(file, 'r', encoding="utf-8") as file:
+        currentText = file.read()
+        data.append(currentText)
+        file.close()
+
+        
 
 
 # In[8]:
