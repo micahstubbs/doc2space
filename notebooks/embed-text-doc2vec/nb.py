@@ -159,16 +159,17 @@ print(dimensions)
 
 # retrieve vectors of all documents in training data
 # write vectors to a csv file
+import csv
 
-
-
-index_count = len(data)-1
-i = 0
-while i <= index_count:
-    doc_name = data[i]
-    vec = model.docvecs[i]
+with open('document-vectors.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile, delimiter=' ')
+    index_count = len(data)-1
+    i = 0
+    while i <= index_count:
+        doc_name = data[i]
+        vec = model.docvecs[i]
     
-    i += 1
+        i += 1
 
 
 # In[43]:
