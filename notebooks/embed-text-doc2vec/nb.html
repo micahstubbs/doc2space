@@ -15909,7 +15909,7 @@ nltk                      3.2.4                    py36_0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Import all the dependencies</span>
@@ -15932,7 +15932,7 @@ nltk                      3.2.4                    py36_0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;../../data/&#39;</span>
@@ -15948,7 +15948,7 @@ nltk                      3.2.4                    py36_0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
@@ -15981,7 +15981,7 @@ nltk                      3.2.4                    py36_0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># should an example of just the filename without the path</span>
@@ -15998,7 +15998,7 @@ nltk                      3.2.4                    py36_0
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[51]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -16015,7 +16015,7 @@ nltk                      3.2.4                    py36_0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">txt_files</span><span class="p">:</span>
@@ -16052,7 +16052,7 @@ nltk                      3.2.4                    py36_0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="k">import</span> <span class="n">randrange</span>
@@ -16076,34 +16076,22 @@ nltk                      3.2.4                    py36_0
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Bubbleworld
-A New Visual Information Retrieval Technique
-Christopher Van Berendonck
+<pre>This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/TKDE.2016.2557324, IEEE
+Transactions on Knowledge and Data Engineering
+IEEE TRANSACTIONS ON KNOWLEDGE AND DATA ENGINEERING, VOL. 11, NO. 12, 2015
 
-Timothy Jacobs
+1
 
-Chris.Vanberendonck@defence.gov.au
-
-Timothy.Jacobs@afit.edu
-
-Air Force Institute of Technology
-Wright-Patterson Air Force Base
-Ohio 45433 USA
-
-Abstract
-Visualisation has significant advantages over traditional textual
-lists for improving cognition in information retrieval. To realise
-these advantages, we identify a set of cognitive principles and
-usage patterns for information retrieval. We apply these
-principles and patterns to the design of a prototype visual
-information retrieval system, Bubbleworld. In Bubbleworld, we
-apply a variety of visual techniques that successfully transform
-the internal mental representations of the information retrieval
-problem to an efficient external view and, through visual cues,
-provide cognitive amplification at key stages of the information
-retrieval process. We enhance the knowledge acquisition
-process by providing query refinement and interaction
-te
+Interactive Visualization
+of Large Data Sets
+Parke Godfrey ∗ , Jarek Gryz ∗ , Piotr Lasek ∗ †
+{godfrey, jarek, plasek}@cse.yorku.ca
+York University, Canada ∗
+Rzeszów University, Poland †
+Abstract—Visualization provides a powerful means for data analysis. But to be practical, visual analytics tools must support smooth
+and flexible use of visualizations at a fast rate. This becomes increasingly onerous with the ever-increasing size of real-world datasets.
+First, large databases make interaction more difficult once query response time exceeds several seconds. Second, any attempt to show
+all data points will overload the visualization, resulting in ch
 </pre>
 </div>
 </div>
@@ -16114,7 +16102,7 @@ te
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tagged_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">TaggedDocument</span><span class="p">(</span><span class="n">words</span><span class="o">=</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">_d</span><span class="o">.</span><span class="n">lower</span><span class="p">()),</span> 
@@ -16136,7 +16124,7 @@ te
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">max_epochs</span> <span class="o">=</span> <span class="mi">100</span>
@@ -16156,7 +16144,7 @@ te
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">build_vocab</span><span class="p">(</span><span class="n">tagged_data</span><span class="p">)</span>
@@ -16169,7 +16157,7 @@ te
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_epochs</span><span class="p">):</span>
@@ -16208,99 +16196,6 @@ iteration 4
 iteration 5
 iteration 6
 iteration 7
-iteration 8
-iteration 9
-iteration 10
-iteration 11
-iteration 12
-iteration 13
-iteration 14
-iteration 15
-iteration 16
-iteration 17
-iteration 18
-iteration 19
-iteration 20
-iteration 21
-iteration 22
-iteration 23
-iteration 24
-iteration 25
-iteration 26
-iteration 27
-iteration 28
-iteration 29
-iteration 30
-iteration 31
-iteration 32
-iteration 33
-iteration 34
-iteration 35
-iteration 36
-iteration 37
-iteration 38
-iteration 39
-iteration 40
-iteration 41
-iteration 42
-iteration 43
-iteration 44
-iteration 45
-iteration 46
-iteration 47
-iteration 48
-iteration 49
-iteration 50
-iteration 51
-iteration 52
-iteration 53
-iteration 54
-iteration 55
-iteration 56
-iteration 57
-iteration 58
-iteration 59
-iteration 60
-iteration 61
-iteration 62
-iteration 63
-iteration 64
-iteration 65
-iteration 66
-iteration 67
-iteration 68
-iteration 69
-iteration 70
-iteration 71
-iteration 72
-iteration 73
-iteration 74
-iteration 75
-iteration 76
-iteration 77
-iteration 78
-iteration 79
-iteration 80
-iteration 81
-iteration 82
-iteration 83
-iteration 84
-iteration 85
-iteration 86
-iteration 87
-iteration 88
-iteration 89
-iteration 90
-iteration 91
-iteration 92
-iteration 93
-iteration 94
-iteration 95
-iteration 96
-iteration 97
-iteration 98
-iteration 99
-Model d2v.model Saved
 </pre>
 </div>
 </div>
@@ -16320,7 +16215,7 @@ Model d2v.model Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">gensim.models.doc2vec</span> <span class="k">import</span> <span class="n">Doc2Vec</span>
@@ -16337,31 +16232,10 @@ Model d2v.model Saved
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>V1_infer [-0.08711238  0.30913809  0.22616503  0.11435614 -0.01954506  0.08124611
- -0.15061171  0.04631089  0.08107837 -0.00901058 -0.13561398  0.08290039
-  0.14645907  0.01209032  0.37373963  0.28964242 -0.12185849  0.10028809
-  0.38866341 -0.07192592]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># to find most similar doc using tags</span>
@@ -16373,28 +16247,10 @@ Model d2v.model Saved
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[(&#39;70&#39;, 0.9756021499633789), (&#39;89&#39;, 0.6453909873962402), (&#39;101&#39;, 0.6296983361244202), (&#39;30&#39;, 0.6239702701568604), (&#39;98&#39;, 0.6230168342590332), (&#39;121&#39;, 0.6164370179176331), (&#39;82&#39;, 0.6149293184280396), (&#39;50&#39;, 0.6094334721565247), (&#39;122&#39;, 0.6089662909507751), (&#39;127&#39;, 0.605032205581665)]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># to find vector of doc in training data using tags</span>
@@ -16407,31 +16263,10 @@ Model d2v.model Saved
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[ 20.57692528 -54.21049118 -13.5384798  -22.32372665 -36.1111412
-  25.23378944   2.2354517   22.41984367   4.04739571  -1.5552386
-   3.65032578   0.99818057   5.76238346  -1.77558267 -46.97889328
-   6.29866123 -38.61899567  10.46997738 -50.46998978 -69.23514557]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># how many dimensions does our doc2vec document space have?</span>
@@ -16440,24 +16275,6 @@ Model d2v.model Saved
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>20
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -16472,7 +16289,7 @@ Model d2v.model Saved
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create column headers for csv file</span>
@@ -16489,28 +16306,10 @@ Model d2v.model Saved
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;doc&#39;, &#39;v0&#39;, &#39;v1&#39;, &#39;v2&#39;, &#39;v3&#39;, &#39;v4&#39;, &#39;v5&#39;, &#39;v6&#39;, &#39;v7&#39;, &#39;v8&#39;, &#39;v9&#39;, &#39;v10&#39;, &#39;v11&#39;, &#39;v12&#39;, &#39;v13&#39;, &#39;v14&#39;, &#39;v15&#39;, &#39;v16&#39;, &#39;v17&#39;, &#39;v18&#39;, &#39;v19&#39;]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># retrieve vectors of all documents in training data</span>

@@ -15,7 +15,7 @@ import sys
 get_ipython().system('conda install --yes --prefix {sys.prefix} gensim nltk')
 
 
-# In[2]:
+# In[1]:
 
 
 #Import all the dependencies
@@ -25,7 +25,7 @@ from nltk.tokenize import word_tokenize
 
 # Let’s prepare data for training our doc2vec model
 
-# In[6]:
+# In[2]:
 
 
 data_dir = '../../data/'
@@ -34,7 +34,7 @@ data_dir = '../../data/'
 data = []
 
 
-# In[10]:
+# In[3]:
 
 
 import glob
@@ -42,14 +42,14 @@ txt_files = glob.glob(f"{data_dir}/*.txt")
 print(len(txt_files))
 
 
-# In[51]:
+# In[4]:
 
 
 # should an example of just the filename without the path
 txt_files[0][11:]
 
 
-# In[11]:
+# In[5]:
 
 
 for file in txt_files:
@@ -61,7 +61,7 @@ for file in txt_files:
 print(len(data))
 
 
-# In[19]:
+# In[6]:
 
 
 from random import randrange
@@ -71,7 +71,7 @@ random_index = randrange(len(data)-1)
 print(data[random_index][0:1000])
 
 
-# In[20]:
+# In[7]:
 
 
 tagged_data = [TaggedDocument(words=word_tokenize(_d.lower()), 
@@ -80,7 +80,7 @@ tagged_data = [TaggedDocument(words=word_tokenize(_d.lower()),
 
 # Here we have a list of four sentences as training data. Now I have tagged the data and its ready for training. Lets start training our model.
 
-# In[21]:
+# In[8]:
 
 
 max_epochs = 100
@@ -93,13 +93,13 @@ model = Doc2Vec(size=vec_size,
                 dm=1)
 
 
-# In[22]:
+# In[9]:
 
 
 model.build_vocab(tagged_data)
 
 
-# In[23]:
+# In[ ]:
 
 
 for epoch in range(max_epochs):
@@ -120,7 +120,7 @@ print("Model d2v.model Saved")
 # 
 # So we have saved the model and it’s ready for implementation. Lets play with it.
 
-# In[24]:
+# In[ ]:
 
 
 from gensim.models.doc2vec import Doc2Vec
@@ -134,7 +134,7 @@ print("V1_infer", v1)
 
 
 
-# In[25]:
+# In[ ]:
 
 
 # to find most similar doc using tags
@@ -142,7 +142,7 @@ similar_doc = model.docvecs.most_similar('1')
 print(similar_doc)
 
 
-# In[26]:
+# In[ ]:
 
 
 # to find vector of doc in training data using tags
@@ -151,7 +151,7 @@ print(similar_doc)
 print(model.docvecs['1'])
 
 
-# In[41]:
+# In[ ]:
 
 
 # how many dimensions does our doc2vec document space have?
@@ -161,7 +161,7 @@ print(dimensions)
 
 # Cool! This dimensionality is determined by the `vec_size` parameter we specified at training time.
 
-# In[45]:
+# In[ ]:
 
 
 # create column headers for csv file
@@ -174,7 +174,7 @@ while i < dimensions:
 print(headers)
 
 
-# In[52]:
+# In[ ]:
 
 
 # retrieve vectors of all documents in training data
