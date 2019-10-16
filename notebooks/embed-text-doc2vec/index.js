@@ -81,17 +81,19 @@ async function draw() {
 
   const maxDistanceFromPoint = 50
 
-  let colorDomain 
+  let colorDomain
 
   // Set the color
   let color
   if (colorVariableType === 'continuous') {
-    colorDomain = Array.from(new Set(marks.map(d => Number(d[colorVariable])))).sort()
+    colorDomain = Array.from(
+      new Set(marks.map(d => Number(d[colorVariable])))
+    ).sort()
     color = d3
       .scaleSequential(d3.interpolateViridis)
       .domain(d3.extent(colorDomain, d => d))
   } else {
-    // ordinal 
+    // ordinal
     colorDomain = Array.from(new Set(marks.map(d => d[colorVariable]))).sort()
     color = d3
       .scaleOrdinal()
@@ -344,7 +346,7 @@ async function draw() {
         .attr('x', legendCenter + legendLineLength + textPadding)
         .attr('y', legendBottom - 2 * scale(legendSize))
         .attr('dy', '0.25em')
-        .text(`$ ${numFormat(Math.round(legendSize / 1e9))} B`)
+        .text(`${numFormat(Math.round(legendSize / 1e9))} B`)
     }
 
     wrapperVar
@@ -456,7 +458,7 @@ async function draw() {
       .style('fill', color)
       .style('opacity', 0)
       .style('text-anchor', 'middle')
-      .text(`$ ${d3.format('.2s')(d[xVariable])}`)
+      .text(`${d3.format('.2s')(d[xVariable])}`)
       .transition()
       .duration(200)
       .style('opacity', 0.5)
