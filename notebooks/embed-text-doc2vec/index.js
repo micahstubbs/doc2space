@@ -6,7 +6,8 @@ async function draw() {
   const xVariable = 'tsne-2d-one'
   const yVariable = 'tsne-2d-two'
   const sizeVariable = 'size'
-  const colorVariable = 'color'
+  const colorVariable = '19'
+  const colorVariableType = 'continuous'
   const idVariable = 'id'
   const labelVariable = 'label'
 
@@ -80,14 +81,23 @@ async function draw() {
 
   const maxDistanceFromPoint = 50
 
-  const domain = Array.from(new Set(marks.map(d => d[colorVariable]))).sort()
-  console.log('domain', domain)
+  let colorDomain 
 
-  // Set the color for each region
-  const color = d3
-    .scaleOrdinal()
-    .range(colorPalette)
-    .domain(domain)
+  // Set the color
+  let color
+  if (colorVariableType === 'continuous') {
+    colorDomain = Array.from(new Set(marks.map(d => Number(d[colorVariable])))).sort()
+    color = d3
+      .scaleSequential(d3.interpolateViridis)
+      .domain(d3.extent(colorDomain, d => d))
+  } else {
+    // ordinal 
+    colorDomain = Array.from(new Set(marks.map(d => d[colorVariable]))).sort()
+    color = d3
+      .scaleOrdinal()
+      .range(colorPalette)
+      .domain(colorDomain)
+  }
 
   // Set the new x axis range
   const xScale = d3.scaleLinear().range([0, width])
