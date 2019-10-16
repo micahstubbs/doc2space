@@ -40,6 +40,8 @@ async function draw() {
     mark.color = i
     mark.size = 1
     mark.id = `id${i}`
+    mark[xVariable] = Number(mark[xVariable])
+    mark[yVariable] = Number(mark[yVariable])
   })
 
   ////////////////////////////////////////////////////////////
@@ -116,10 +118,12 @@ async function draw() {
     .range([height, 0])
     .domain(d3.extent(marks, d => d[yVariable]))
     .nice()
+
   const yAxis = d3
     .axisLeft()
     .ticks(6) // Set rough # of ticks
     .scale(yScale)
+
   // Append the y-axis
   wrapper
     .append('g')
