@@ -35,7 +35,7 @@ async function draw() {
   /////////////////////// Load Data //////////////////////////
   ////////////////////////////////////////////////////////////
 
-  const marks = await d3.csv('./tsne-coords-labels.csv')
+  const marks = await d3.csv('./tsne-coords-labels-run-1.csv')
   marks.forEach((mark, i) => {
     mark.color = i
     mark.size = 1
@@ -134,7 +134,8 @@ async function draw() {
   // Scale for the bubble size
   const rScale = d3
     .scaleSqrt()
-    .range([mobileScreen ? 1 : 2, mobileScreen ? 10 : 16])
+    .range([mobileScreen ? 1 : 1, mobileScreen ? 10 : 4])
+    // .range([mobileScreen ? 1 : 2, mobileScreen ? 10 : 16])
     .domain(d3.extent(marks, d => d[sizeVariable]))
 
   //////////////////////////////////////////////////////
