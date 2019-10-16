@@ -5,9 +5,9 @@ async function draw() {
 
   const xVariable = 'tsne-2d-one'
   const yVariable = 'tsne-2d-two'
-  const sizeVariable = ''
-  const colorVariable = ''
-  const idVariable = 'label'
+  const sizeVariable = 'size'
+  const colorVariable = 'color'
+  const idVariable = 'id'
   const labelVariable = 'label'
 
   const yAxisLabel = ''
@@ -36,6 +36,11 @@ async function draw() {
   ////////////////////////////////////////////////////////////
 
   const marks = await d3.csv('./tsne-coords-labels.csv')
+  marks.forEach((mark, i) => {
+    mark.color = i
+    mark.size = 1
+    mark.id = `id${i}`
+  })
 
   ////////////////////////////////////////////////////////////
   //////////////////// Setup the Page ////////////////////////
@@ -83,7 +88,7 @@ async function draw() {
     .domain(domain)
 
   // Set the new x axis range
-  const xScale = d3.scaleLog().range([0, width])
+  const xScale = d3.scaleLinear().range([0, width])
 
   if (customXDomain) {
     xScale.domain(customXDomain) // I prefer this exact scale over the true range and then using "nice"
@@ -93,10 +98,10 @@ async function draw() {
   // Set new x-axis
   const xAxis = d3
     .axisBottom()
-    .ticks(2)
-    .tickFormat(d =>
-      xScale.tickFormat(mobileScreen ? 4 : 8, d => d3.format('$.2s')(d))(d)
-    )
+    .ticks(6)
+    // .tickFormat(d =>
+    //   xScale.tickFormat(mobileScreen ? 4 : 8, d => d3.format('$.2s')(d))(d)
+    // )
     .scale(xScale)
   // Append the x-axis
   wrapper
