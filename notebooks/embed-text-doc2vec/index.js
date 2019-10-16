@@ -6,7 +6,7 @@ async function draw() {
   const xVariable = 'tsne-2d-one'
   const yVariable = 'tsne-2d-two'
   const sizeVariable = 'size'
-  const colorVariable = '19'
+  const colorVariable = '1'
   const colorVariableType = 'continuous'
   const idVariable = 'id'
   const labelVariable = 'label'
