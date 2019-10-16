@@ -1,0 +1,71 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #525252;
+  text-align: center;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #b3b3b3;
+  shape-rendering: crispEdges;
+}
+.axis text {
+  font-size: 10px;
+  fill: #6b6b6b;
+}
+
+.marks {
+  pointer-events: none;
+}
+
+.guide {
+  pointer-events: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.popover {
+  pointer-events: none;
+}
+
+.legendCircle {
+  stroke-width: 1;
+  stroke: #999;
+  stroke-dasharray: 2 2;
+  fill: none;
+}
+
+.legendLine {
+  stroke-width: 1;
+  stroke: #d1d1d1;
+  shape-rendering: crispEdges;
+}
+
+.legendTitle {
+  fill: #1a1a1a;
+  color: #1a1a1a;
+  text-anchor: middle;
+  font-size: 10px;
+}
+
+.legendText {
+  fill: #949494;
+  text-anchor: start;
+  font-size: 9px;
+}
+
+@media (min-width: 500px) {
+  .col-sm-3,
+  .col-sm-9 {
+    float: left;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+}
