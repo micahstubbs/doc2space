@@ -1,14 +1,26 @@
 async function render() {
   const data = await d3.csv("tsne-coords-labels-run-1.csv");
-
   console.log("data", data);
+
+  const xVariable = "tsne-2d-one";
+  const zVariable = "tsne-2d-two";
 
   // setup an arcScale for laying objects out
   // in a half circle
-  const arcScale = d3
+  // const arcScale = d3
+  //   .scaleLinear()
+  //   .domain([0, blocks.length])
+  //   .range([Math.PI, 2 * Math.PI]); // remember, angles in radians
+
+  const xScale = d3
     .scaleLinear()
-    .domain([0, blocks.length])
-    .range([Math.PI, 2 * Math.PI]); // remember, angles in radians
+    .domain(d3.extent(data.map(d => d[xVariable])))
+    .range([-12, 12]);
+
+  const zScale = d3
+    .scaleLinear()
+    .domain(d3.extent(data.map(d => d[zVariable])))
+    .range([-12, 12]);
 
   //
   // for each d3 example in the blocks data
@@ -21,7 +33,7 @@ async function render() {
     .append("a-entity")
     .attr("id", "blocks")
     .selectAll(".throwable")
-    .data(blocks)
+    .data(data)
     .enter()
     .append("a-box")
     .classed("block", true)
@@ -30,9 +42,9 @@ async function render() {
     // .attr("velcity", "")
     .attr("scale", { x: 0.96, y: 0.5, z: 0.05 })
     .attr("position", (d, i) => ({
-      x: 6.5 - 2 * Math.PI + r * Math.cos(arcScale(i)),
-      y: (blocks.length - i) / 5 + 0,
-      z: -0.5 * Math.PI + r * Math.sin(arcScale(i))
+      x: xScale(d[xVariable]),
+      y: 0.5,
+      z: zScale(d[zVariable])
     }));
   // .attr("material", d => ({
   //   src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/thumbnail.png)`
@@ -40,7 +52,7 @@ async function render() {
 }
 
 const sceneEl = document.querySelector("a-scene");
-if (sceneEl && sceneEl.hasLoaded) {
+if (sceneEl.hasLoaded) {
   render();
 } else {
   sceneEl.addEventListener("loaded", render);
