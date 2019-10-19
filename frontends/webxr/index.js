@@ -37,11 +37,11 @@ async function render() {
   // .attr("material", d => ({
   //   src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/thumbnail.png)`
   // }));
+}
 
-  const sceneEl = document.querySelector("a-scene");
-  if (sceneEl.hasLoaded) {
-    render();
-  } else {
-    sceneEl.addEventListener("loaded", render);
-  }
+const sceneEl = document.querySelector("a-scene");
+if (sceneEl && sceneEl.hasLoaded) {
+  render();
+} else {
+  sceneEl.addEventListener("loaded", render);
 }
