@@ -43,7 +43,7 @@ async function render() {
     .attr("scale", { x: 0.96, y: 0.5, z: 0.05 })
     .attr("position", (d, i) => ({
       x: xScale(d[xVariable]),
-      y: 0.5,
+      y: 1.5,
       z: zScale(d[zVariable])
     }));
   // .attr("material", d => ({
