@@ -22,6 +22,10 @@ async function render() {
     .domain(d3.extent(data.map(d => d[zVariable])))
     .range([-12, 12]);
 
+  const letterPaperAspectRatio = 1.2941;
+  const paperWidth = 0.6;
+  const paperHeight = paperWidth * letterPaperAspectRatio;
+
   //
   // for each d3 example in the blocks data
   // add an a-box to the scene
@@ -40,7 +44,7 @@ async function render() {
     .classed("throwable", true)
     // .attr("dynamic-body", "")
     // .attr("velcity", "")
-    .attr("scale", { x: 0.96, y: 0.5, z: 0.05 })
+    .attr("scale", { x: paperWidth, y: paperHeight, z: 0.05 })
     .attr("position", (d, i) => ({
       x: xScale(d[xVariable]),
       y: 1.5,
