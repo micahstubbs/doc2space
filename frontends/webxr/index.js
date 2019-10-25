@@ -4,6 +4,7 @@ async function render() {
 
   const xVariable = "tsne-2d-one";
   const zVariable = "tsne-2d-two";
+  const labelVariable = "label";
 
   // setup an arcScale for laying objects out
   // in a half circle
@@ -49,10 +50,13 @@ async function render() {
       x: xScale(d[xVariable]),
       y: 1.5,
       z: zScale(d[zVariable])
-    }));
-  // .attr("material", d => ({
-  //   src: `url(http://bl.ocks.org/${d.owner.login}/raw/${d.id}/thumbnail.png)`
-  // }));
+    }))
+    .attr("material", d => {
+      const fileStem = d[labelVariable].replace(".txt", "");
+      return {
+        src: `url(../../data/${fileStem}_300dpi.jpg)`
+      };
+    });
 }
 
 const sceneEl = document.querySelector("a-scene");
