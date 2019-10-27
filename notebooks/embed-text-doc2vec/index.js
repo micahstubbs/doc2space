@@ -13,7 +13,6 @@ async function draw() {
 
   const yAxisLabel = ''
   const xAxisLabel = ''
-  const legendName = 'GDP (Billion $)'
   const pageTitle = '20D to 2D with t-SNE'
   const title = 'doc2vec data space on my Zotero papers'
   const subtitle = '20D to 2D with t-SNE'
@@ -52,7 +51,6 @@ async function draw() {
   d3.select('title').html(pageTitle)
   d3.select('#title').html(title)
   d3.select('#subtitle').html(subtitle)
-  d3.select('#legendTitle').html(colorVariable.toUpperCase())
 
   // Quick fix for resizing some things for mobile-ish viewers
   const mobileScreen = $(window).innerWidth() < 500 ? true : false
@@ -225,162 +223,6 @@ async function draw() {
     .attr('r', d => rScale(d[sizeVariable]))
     .style('opacity', opacityCircles)
     .style('fill', d => color(d[colorVariable]))
-
-  ///////////////////////////////////////////////////////////////////////////
-  ///////////////////////// Create the Legend////////////////////////////////
-  ///////////////////////////////////////////////////////////////////////////
-
-  if (!mobileScreen) {
-    // Legend
-    const legendMargin = { left: 5, top: 10, right: 5, bottom: 10 }
-
-    const legendWidth = 145
-    const legendHeight = 270
-
-    const svgLegend = d3
-      .select('#legend')
-      .append('svg')
-      .attr('width', legendWidth + legendMargin.left + legendMargin.right)
-      .attr('height', legendHeight + legendMargin.top + legendMargin.bottom)
-
-    const legendWrapper = svgLegend
-      .append('g')
-      .attr('class', 'legendWrapper')
-      .attr('transform', `translate(${legendMargin.left},${legendMargin.top})`)
-
-    const // dimensions of the colored square
-      rectSize = 15 // width of each row
-
-    const // height of a row in the legend
-      rowHeight = 20
-
-    const maxWidth = 144
-
-    // Create container per rect/text pair
-    const legend = legendWrapper
-      .selectAll('.legendSquare')
-      .data(color.range())
-      .enter()
-      .append('g')
-      .attr('class', 'legendSquare')
-      .attr('transform', (d, i) => `translate(${0},${i * rowHeight})`)
-      .style('cursor', 'pointer')
-      .on('mouseover', selectLegend(0.02))
-      .on('mouseout', selectLegend(opacityCircles))
-
-    // Non visible white rectangle behind square and text for better hover
-    legend
-      .append('rect')
-      .attr('width', maxWidth)
-      .attr('height', rowHeight)
-      .style('fill', 'white')
-    // Append small squares to Legend
-    legend
-      .append('rect')
-      .attr('width', rectSize)
-      .attr('height', rectSize)
-      .style('fill', d => d)
-    // Append text to Legend
-    legend
-      .append('text')
-      .attr('transform', `translate(${22},${rectSize / 2})`)
-      .attr('class', 'legendText')
-      .style('font-size', '10px')
-      .attr('dy', '.35em')
-      .text((d, i) => color.domain()[i])
-
-    // Create g element for bubble size legend
-    const bubbleSizeLegend = legendWrapper
-      .append('g')
-      .attr(
-        'transform',
-        `translate(${legendWidth / 2 - 30},${color.domain().length * rowHeight +
-          20})`
-      )
-    // Draw the bubble size legend
-    bubbleLegend(
-      bubbleSizeLegend,
-      rScale,
-      (legendSizes = [1e11, 3e12, 1e13]),
-      legendName
-    )
-  } // if !mobileScreen
-  else {
-    d3.select('#legend').style('display', 'none')
-  }
-
-  //////////////////////////////////////////////////////
-  /////////////////// Bubble Legend ////////////////////
-  //////////////////////////////////////////////////////
-
-  function bubbleLegend(wrapperVar, scale, sizes, titleName) {
-    const legendCenter = 0
-    const legendBottom = 50
-    const legendLineLength = 25
-    const textPadding = 5
-    const numFormat = d3.format(',')
-
-    function drawBubble(legendSize) {
-      wrapperVar
-        .append('circle')
-        .attr('r', scale(legendSize))
-        .attr('class', 'legendCircle')
-        .attr('cx', legendCenter)
-        .attr('cy', legendBottom - scale(legendSize))
-    }
-
-    function drawLine(legendSize) {
-      wrapperVar
-        .append('line')
-        .attr('class', 'legendLine')
-        .attr('x1', legendCenter)
-        .attr('y1', legendBottom - 2 * scale(legendSize))
-        .attr('x2', legendCenter + legendLineLength)
-        .attr('y2', legendBottom - 2 * scale(legendSize))
-    }
-
-    function drawText(legendSize) {
-      wrapperVar
-        .append('text')
-        .attr('class', 'legendText')
-        .attr('x', legendCenter + legendLineLength + textPadding)
-        .attr('y', legendBottom - 2 * scale(legendSize))
-        .attr('dy', '0.25em')
-        .text(`${numFormat(Math.round(legendSize / 1e9))} B`)
-    }
-
-    wrapperVar
-      .append('text')
-      .attr('class', 'legendTitle')
-      .attr('transform', `translate(${legendCenter},${0})`)
-      .attr('x', `${0}px`)
-      .attr('y', `${0}px`)
-      .attr('dy', '1em')
-      .text(titleName)
-
-    sizes.forEach(size => {
-      drawBubble(size)
-      drawLine(size)
-      drawText(size)
-    })
-  } // bubbleLegend
-
-  ///////////////////////////////////////////////////////////////////////////
-  //////////////////// Hover function for the legend ////////////////////////
-  ///////////////////////////////////////////////////////////////////////////
-
-  // Decrease opacity of non selected circles when hovering in the legend
-  function selectLegend(opacity) {
-    return (d, i) => {
-      const chosen = color.domain()[i]
-
-      wrapper
-        .selectAll('.marks')
-        .filter(d => d[colorVariable] != chosen)
-        .transition()
-        .style('opacity', opacity)
-    }
-  } // function selectLegend
 
   ///////////////////////////////////////////////////////////////////////////
   /////////////////// Hover functions of the circles ////////////////////////
