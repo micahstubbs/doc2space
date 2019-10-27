@@ -56,7 +56,7 @@ async function draw() {
   const mobileScreen = $(window).innerWidth() < 500 ? true : false
 
   // Scatterplot
-  const margin = { left: 60, top: 20, right: 20, bottom: 60 }
+  const margin = { left: 60, top: 20, right: 80, bottom: 50 }
 
   const width = Math.max($('#chart').width(), 960) - margin.left - margin.right
   const height = (width * 2) / 3
