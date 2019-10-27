@@ -14,7 +14,7 @@ async function draw() {
   const yAxisLabel = ''
   const xAxisLabel = ''
   const legendName = 'GDP (Billion $)'
-  const pageTitle = 'Scatterplot with Voronoi'
+  const pageTitle = '20D to 2D with t-SNE'
   const title = 'doc2vec data space on my Zotero papers'
   const subtitle = '20D to 2D with t-SNE'
 
