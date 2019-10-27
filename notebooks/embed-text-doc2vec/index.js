@@ -32,9 +32,6 @@ async function draw() {
 
   const customXDomain = false
 
-  // const pageMargin = { left: 50, top: 40, right: 50, bottom: 40 }
-  const margin = { left: 60, top: 20, right: 20, bottom: 60 }
-
   ////////////////////////////////////////////////////////////
   /////////////////////// Load Data //////////////////////////
   ////////////////////////////////////////////////////////////
@@ -61,10 +58,10 @@ async function draw() {
   const mobileScreen = $(window).innerWidth() < 500 ? true : false
 
   // Scatterplot
-  const width = getWidth() - margin.left - margin.right //- pageMargin.left - pageMargin.right
-  const height = getHeight() - margin.top - margin.bottom // - pageMargin.top - pageMargin.bottom
-  // const width = Math.min($('#chart').width(), 840) - margin.left - margin.right
-  // const height = (width * 2) / 3
+  const margin = { left: 60, top: 20, right: 20, bottom: 60 }
+
+  const width = Math.min($('#chart').width(), 840) - margin.left - margin.right
+  const height = (width * 2) / 3
 
   const svg = d3
     .select('#chart')
@@ -194,8 +191,8 @@ async function draw() {
     }
     const p = d3.mouse(this)
     let site
-    p[0] -= margin.left //  - pageMargin.left
-    p[1] -= margin.top // - pageMargin.top
+    p[0] -= margin.left
+    p[1] -= margin.top
     // don't react if the mouse is close to one of the axis
     if (p[0] < 5 || p[1] < 5) {
       site = null
@@ -494,26 +491,6 @@ async function draw() {
       .duration(200)
       .style('opacity', 0.5)
   } // function showTooltip
-}
-
-function getWidth() {
-  return Math.max(
-    document.body.scrollWidth,
-    document.documentElement.scrollWidth,
-    document.body.offsetWidth,
-    document.documentElement.offsetWidth,
-    document.documentElement.clientWidth
-  )
-}
-
-function getHeight() {
-  return Math.max(
-    document.body.scrollHeight,
-    document.documentElement.scrollHeight,
-    document.body.offsetHeight,
-    document.documentElement.offsetHeight,
-    document.documentElement.clientHeight
-  )
 }
 
 draw()
