@@ -58,7 +58,7 @@ async function draw() {
   // Scatterplot
   const margin = { left: 60, top: 20, right: 20, bottom: 60 }
 
-  const width = Math.min($('#chart').width(), 840) - margin.left - margin.right
+  const width = Math.max($('#chart').width(), 960) - margin.left - margin.right
   const height = (width * 2) / 3
 
   const svg = d3
