@@ -5,5 +5,8 @@
   "repository": "git@github.com:micahstubbs/doc2space.git",
   "author": "micahstubbs <micah.stubbs@gmail.com>",
   "license": "Apache-2.0",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "@google-cloud/storage": "^4.1.0"
+  }
 }
