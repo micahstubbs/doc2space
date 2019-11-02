@@ -17,45 +17,6 @@
         //"this.el" reffers ctlR or L in this function
         this.el.grip = false
 
-        //Called when trigger is pressed
-        this.el.addEventListener('triggerdown', function(e) {
-          //"this" reffers ctlR or L in this function
-          var point = this.object3D.getWorldPosition()
-
-          //txt.setAttribute("value",point.x.toFixed(2)+","+point.y.toFixed(2)+","+point.z.toFixed(2));
-
-          //Creating ball entity.
-          var ball = document.createElement('a-sphere')
-          ball.setAttribute('class', 'ball')
-          ball.setAttribute('scale', '0.2 0.2 0.2')
-          ball.setAttribute('position', point)
-          ball.setAttribute('dynamic-body', 'shape: sphere; sphereRadius:0.2; ')
-
-          //Getting raycaster which was attached to ctrlR or L
-          var dir = this.getAttribute('raycaster').direction
-
-          //Setting shoot dierction and speed
-          var force = new THREE.Vector3(dir.x, dir.y, dir.z)
-          force.multiplyScalar(2000)
-          ball.force = this.object3D.localToWorld(force)
-
-          //Instantiate ball entity in a-scene
-          var scene = document.querySelector('a-scene')
-          scene.appendChild(ball)
-
-          //shoot "ball" after physics information getting ready.
-          ball.addEventListener('body-loaded', function(e) {
-            //"this" reffers ball entity in this function
-            var p = this.object3D.position
-            //this.velocity was calculated before this function is called.
-            var f = this.force
-            this.body.applyForce(
-              new CANNON.Vec3(f.x, f.y, f.z),
-              new CANNON.Vec3(p.x, p.y, p.z)
-            )
-          })
-        })
-
         //Grip Pressed
         this.el.addEventListener('gripdown', function(e) {
           //Setting grip flag as true.
@@ -101,7 +62,7 @@
         })
 
         //console.log(this);
-      },
+      },//
 
       //called every frame.
       tick: function() {
@@ -180,7 +141,7 @@
           input-listen
         >
           <a-text
-            value="Trigger: shoot a ball\nGrip: Grab large object\nX: Teleport"
+            value="\nGrip: Grab object\nX: Teleport"
             position="0 0.05 0"
             rotation="-90 0 0"
             scale="0.1 0.1 0.1"
@@ -195,7 +156,7 @@
           input-listen
         >
           <a-text
-            value="Trigger: shoot a ball\nGrip: Grab large object\nA: Remove small balls"
+            value="\nGrip: Grab object\nX: Teleport"
             position="0 0.05 0"
             rotation="-90 0 0"
             scale="0.1 0.1 0.1"
