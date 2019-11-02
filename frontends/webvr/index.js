@@ -1,10 +1,10 @@
 async function render() {
-  const data = await d3.csv("tsne-coords-labels-run-1.csv");
-  console.log("data", data);
+  const data = await d3.csv('tsne-coords-labels-run-1.csv')
+  console.log('data', data)
 
-  const xVariable = "tsne-2d-one";
-  const zVariable = "tsne-2d-two";
-  const labelVariable = "label";
+  const xVariable = 'tsne-2d-one'
+  const zVariable = 'tsne-2d-two'
+  const labelVariable = 'label'
 
   // setup an arcScale for laying objects out
   // in a half circle
@@ -16,16 +16,16 @@ async function render() {
   const xScale = d3
     .scaleLinear()
     .domain(d3.extent(data.map(d => d[xVariable])))
-    .range([-12, 12]);
+    .range([-12, 12])
 
   const zScale = d3
     .scaleLinear()
     .domain(d3.extent(data.map(d => d[zVariable])))
-    .range([-12, 12]);
+    .range([-12, 12])
 
-  const letterPaperAspectRatio = 1.2941;
-  const paperWidth = 0.6;
-  const paperHeight = paperWidth * letterPaperAspectRatio;
+  const letterPaperAspectRatio = 1.2941
+  const paperWidth = 0.6
+  const paperHeight = paperWidth * letterPaperAspectRatio
 
   //
   // for each d3 example in the blocks data
@@ -33,35 +33,45 @@ async function render() {
   // with the thumbnail of that d3 example
   // as the image texture for that a-box
   //
-  const r = 0.5;
-  d3.select("a-scene")
-    .append("a-entity")
-    .attr("id", "blocks")
-    .selectAll(".throwable")
+
+  const localDataDir = '../../data'
+
+  const bucketUrl = `https://storage.googleapis.com/${bucketName}`
+
+  const r = 0.5
+  d3.select('a-scene')
+    .append('a-entity')
+    .attr('id', 'blocks')
+    .selectAll('.throwable')
     .data(data)
     .enter()
-    .append("a-box")
-    .classed("block", true)
-    .classed("throwable", true)
+    .append('a-box')
+    .classed('block', true)
+    .classed('throwable', true)
     // .attr("dynamic-body", "")
     // .attr("velcity", "")
-    .attr("scale", { x: paperWidth, y: paperHeight, z: 0.05 })
-    .attr("position", (d, i) => ({
+    .attr('scale', { x: paperWidth, y: paperHeight, z: 0.05 })
+    .attr('position', (d, i) => ({
       x: xScale(d[xVariable]),
       y: 1.5,
       z: zScale(d[zVariable])
     }))
-    .attr("material", d => {
-      const fileStem = d[labelVariable].replace(".txt", "");
+    .attr('material', d => {
+      const fileStem = d[labelVariable].replace('.txt', '')
+      const filename = `${fileStem}_300dpi.jpg`
+      const cloudFilename = encodeURIComponent(filename)
+      const localUrl = `${localDataDir}/${filename}`
+      const cloudUrl = `${bucketUrl}/${cloudFilename}`
+
       return {
-        src: `url(../../data/${fileStem}_300dpi.jpg)`
-      };
-    });
+        src: `url(${cloudUrl})`
+      }
+    })
 }
 
-const sceneEl = document.querySelector("a-scene");
+const sceneEl = document.querySelector('a-scene')
 if (sceneEl.hasLoaded) {
-  render();
+  render()
 } else {
-  sceneEl.addEventListener("loaded", render);
+  sceneEl.addEventListener('loaded', render)
 }
