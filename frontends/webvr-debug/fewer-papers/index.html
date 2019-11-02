@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>doc2space WebVR</title>
+    <meta name="description" content="doc2space WebVR" />
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@df3e8672b77568845e5e360f54f4456fd4829a38/dist/aframe-master.min.js"></script>
+    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.js"></script>
+  </head>
+  <script>
+    AFRAME.registerComponent('input-listen', {
+      init: function() {
+        //Declaration and initialization of flag
+        //which exprains grip button is pressed or not.
+        //"this.el" reffers ctlR or L in this function
+        this.el.grip = false
+
+        //Grip Pressed
+        this.el.addEventListener('gripdown', function(e) {
+          //Setting grip flag as true.
+          this.grip = true
+        })
+        //Grip Released
+        this.el.addEventListener('gripup', function(e) {
+          //Setting grip flag as false.
+          this.grip = false
+        })
+
+        //Raycaster intersected with something.
+        this.el.addEventListener('raycaster-intersection', function(e) {
+          //Store first selected object as selectedObj
+          this.selectedObj = e.detail.els[0]
+        })
+        //Raycaster intersection is finished.
+        this.el.addEventListener('raycaster-intersection-cleared', function(e) {
+          //Clear information of selectedObj
+          this.selectedObj = null
+        })
+
+        //A-buttorn Pressed
+        this.el.addEventListener('abuttondown', function(e) {
+          //Aqurire all ball entities which are instantiated in a-scene
+          var els = document.querySelectorAll('.ball')
+          //Destroy all ball entities
+          for (var i = 0; i < els.length; i++) {
+            els[i].parentNode.removeChild(els[i])
+          }
+        })
+
+        //X-buttorn Pressed
+        this.el.addEventListener('xbuttondown', function(e) {
+          //Start pointing position to teleport
+          this.emit('teleportstart')
+        })
+
+        //X-buttorn Released
+        this.el.addEventListener('xbuttonup', function(e) {
+          //Jump to pointed position
+          this.emit('teleportend')
+        })
+
+        //console.log(this);
+      }, //
+
+      //called every frame.
+      tick: function() {
+        if (!this.el.selectedObj) {
+          return
+        }
+        if (!this.el.grip) {
+          return
+        }
+        //Getting raycaster component which is attatched to ctlR or L
+        //this.el means entity of ctlR or L in this function.
+        var ray = this.el.getAttribute('raycaster').direction
+        //setting tip of raycaster as 1.2m forward of controller.
+        var p = new THREE.Vector3(ray.x, ray.y, ray.z)
+        p.normalize()
+        p.multiplyScalar(1.2)
+        //Convert local position into world coordinate.
+        this.el.object3D.localToWorld(p)
+        //Move selected object to follow the tip of raycaster.
+        this.el.selectedObj.object3D.position.set(p.x, p.y, p.z)
+      }
+    })
+  </script>
+
+  <body>
+    <a-scene
+      physics="debug: false; gravity: 0; restitution: 0.9; "
+      background="color: #AAAAAA"
+    >
+      <!--collidable:enable to be detect intersection with raycaster-->
+      <!--static-body:disable using gravity but can interact with physics objects-->
+      <a-sphere
+        class="collidable"
+        static-body
+        position="0 1.25 -4"
+        radius="0.7"
+        color="#EF2D5E"
+        shadow
+      ></a-sphere>
+      <a-cylinder
+        class="collidable"
+        static-body
+        position="1 0.75 -2"
+        radius="0.5"
+        height="1.5"
+        color="#FFC65D"
+        shadow
+      ></a-cylinder>
+      <a-box
+        class="collidable"
+        static-body
+        position="-1 0.5 -2"
+        rotation="0 0 0"
+        color="#4CC3D9"
+        shadow
+      >
+      </a-box>
+
+      <!--set the environment-->
+      <a-entity environment="preset: forest"></a-entity>
+
+      <a-entity id="cameraRig">
+        <a-entity
+          id="head"
+          camera
+          wasd-controls
+          look-controls
+          position="0 1.6 0"
+        >
+        </a-entity>
+        <a-entity
+          id="ctlL"
+          teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; startEvents: teleportstart; endEvents: teleportend"
+          raycaster="objects: .collidable; far:1.2;"
+          laser-controls="hand: left"
+          input-listen
+        >
+          <a-text
+            value="\nGrip: Grab object\nX: Teleport"
+            position="0 0.05 0"
+            rotation="-90 0 0"
+            scale="0.1 0.1 0.1"
+            align="center"
+            color="#FFFFFF"
+          ></a-text>
+        </a-entity>
+        <a-entity
+          id="ctlR"
+          raycaster="objects: .collidable; far:1.2;"
+          laser-controls="hand: right"
+          input-listen
+        >
+          <a-text
+            value="\nGrip: Grab object\nX: Teleport"
+            position="0 0.05 0"
+            rotation="-90 0 0"
+            scale="0.1 0.1 0.1"
+            align="center"
+            color="#FFFFFF"
+          ></a-text>
+        </a-entity>
+      </a-entity>
+    </a-scene>
+    <script src="./secrets.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
