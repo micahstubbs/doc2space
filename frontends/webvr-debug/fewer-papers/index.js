@@ -1,10 +1,10 @@
 async function render() {
-  const inputData = await d3.csv('tsne-coords-labels-run-1.csv')
-  console.log('data', data)
+  const inputData = await d3.csv('./tsne-coords-labels-run-1.csv')
 
   // make a small sample dataset of just the first 5 papers
   // so that the Quest does not crash on page load
   const data = inputData.slice(0, 5)
+  console.log('data', data)
 
   const xVariable = 'tsne-2d-one'
   const zVariable = 'tsne-2d-two'
@@ -38,7 +38,7 @@ async function render() {
   // as the image texture for that a-box
   //
 
-  const localDataDir = '../../data'
+  const localDataDir = '../../../data'
 
   const bucketUrl = `https://storage.googleapis.com/${bucketName}`
 
