@@ -48,8 +48,8 @@ async function render() {
     .append('a-box')
     .classed('block', true)
     .classed('throwable', true)
-    // .attr("dynamic-body", "")
-    // .attr("velcity", "")
+    .classed('collidable', true)
+    .attr('static-body', '')
     .attr('scale', { x: paperWidth, y: paperHeight, z: 0.05 })
     .attr('position', (d, i) => ({
       x: xScale(d[xVariable]),
