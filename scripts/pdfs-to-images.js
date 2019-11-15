@@ -2,7 +2,9 @@ const fs = require('fs')
 const exec = require('child_process').exec
 
 // image quality
-const dpi = 10 // 100 // 300
+const minLegibleTitleDpi = 50
+const minLegibleAbstractDpi = 87
+const dpi = 87 // 75 // 50 // 10 // 100 // 300
 
 // check if data dir exists
 const dataDir = '../data'
