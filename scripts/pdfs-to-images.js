@@ -4,7 +4,7 @@ const exec = require('child_process').exec
 // image quality
 const minLegibleTitleDpi = 50
 const minLegibleAbstractDpi = 87
-const dpi = 87 // 75 // 50 // 10 // 100 // 300
+const dpi = minLegibleTitleDpi // 87 // 75 // 50 // 10 // 100 // 300
 
 // check if data dir exists
 const dataDir = '../data'

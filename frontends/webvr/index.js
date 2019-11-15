@@ -5,6 +5,7 @@ async function render() {
   const xVariable = 'tsne-2d-one'
   const zVariable = 'tsne-2d-two'
   const labelVariable = 'label'
+  let dpi = 50
 
   // setup an arcScale for laying objects out
   // in a half circle
@@ -58,7 +59,7 @@ async function render() {
     }))
     .attr('material', d => {
       const fileStem = d[labelVariable].replace('.txt', '')
-      const filename = `${fileStem}_300dpi.jpg`
+      const filename = `${fileStem}_${dpi}dpi.jpg`
       const cloudFilename = encodeURIComponent(filename)
       const localUrl = `${localDataDir}/${filename}`
       const cloudUrl = `${bucketUrl}/${cloudFilename}`

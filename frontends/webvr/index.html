@@ -40,7 +40,7 @@
           this.selectedObj = null
         })
 
-        //A-buttorn Pressed
+        //A-button Pressed
         this.el.addEventListener('abuttondown', function(e) {
           //Aqurire all ball entities which are instantiated in a-scene
           var els = document.querySelectorAll('.ball')
@@ -50,13 +50,13 @@
           }
         })
 
-        //X-buttorn Pressed
+        //X-button Pressed
         this.el.addEventListener('xbuttondown', function(e) {
           //Start pointing position to teleport
           this.emit('teleportstart')
         })
 
-        //X-buttorn Released
+        //X-button Released
         this.el.addEventListener('xbuttonup', function(e) {
           //Jump to pointed position
           this.emit('teleportend')
