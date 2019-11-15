@@ -25,7 +25,7 @@ async function render() {
     .range([-12, 12])
 
   const letterPaperAspectRatio = 1.2941
-  const paperWidth = 0.6
+  const paperWidth = 1.2 // 0.6
   const paperHeight = paperWidth * letterPaperAspectRatio
 
   //
