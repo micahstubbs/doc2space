@@ -1,6 +1,7 @@
 #!/bin/bash 
 infile=${1}
 outfile=${2}
+dpi=${3}
 
 # gs -q -o $(basename "${infile}")_p%04d.jpeg -sDEVICE=jpeg -dFirstPage=1 -dLastPage=1 "${infile}"
 
@@ -9,7 +10,7 @@ outfile=${2}
 
 # To get higher quality JPEGs (but also bigger-in-size ones) with a 
 # resolution of 300 dpi use the following command:
-gs -q -o "${outfile}" -sDEVICE=jpeg -dJPEGQ=100 -r300 -dFirstPage=1 -dLastPage=1 "${infile}"
+gs -q -o "${outfile}" -sDEVICE=jpeg -dJPEGQ=100 -r"${dpi}" -dFirstPage=1 -dLastPage=1 "${infile}"
 
 echo "wrote ${outfile}"
 
