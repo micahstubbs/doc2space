@@ -5,64 +5,64 @@
     <title>doc2space WebVR</title>
     <meta name="description" content="doc2space WebVR" />
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@df3e8672b77568845e5e360f54f4456fd4829a38/dist/aframe-master.min.js"></script>
-    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+    <script src="./aframe-teleport-controls.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
     <script src="./aframe-environment-component.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.js"></script>
   </head>
   <script>
-    AFRAME.registerComponent('input-listen', {
+    AFRAME.registerComponent("input-listen", {
       init: function() {
         //Declaration and initialization of flag
         //which exprains grip button is pressed or not.
         //"this.el" reffers ctlR or L in this function
-        this.el.grip = false
+        this.el.grip = false;
 
         //Grip Pressed
-        this.el.addEventListener('gripdown', function(e) {
+        this.el.addEventListener("gripdown", function(e) {
           //Setting grip flag as true.
-          this.grip = true
-        })
+          this.grip = true;
+        });
         //Grip Released
-        this.el.addEventListener('gripup', function(e) {
+        this.el.addEventListener("gripup", function(e) {
           //Setting grip flag as false.
-          this.grip = false
-        })
+          this.grip = false;
+        });
 
         //Raycaster intersected with something.
-        this.el.addEventListener('raycaster-intersection', function(e) {
+        this.el.addEventListener("raycaster-intersection", function(e) {
           //Store first selected object as selectedObj
-          this.selectedObj = e.detail.els[0]
-        })
+          this.selectedObj = e.detail.els[0];
+        });
         //Raycaster intersection is finished.
-        this.el.addEventListener('raycaster-intersection-cleared', function(e) {
+        this.el.addEventListener("raycaster-intersection-cleared", function(e) {
           //Clear information of selectedObj
-          this.selectedObj = null
-        })
+          this.selectedObj = null;
+        });
 
         //X-button Pressed
-        this.el.addEventListener('xbuttondown', function(e) {
+        this.el.addEventListener("xbuttondown", function(e) {
           //Start pointing position to teleport
-          this.emit('teleportstart')
-        })
+          this.emit("teleportstart");
+        });
 
         //X-button Released
-        this.el.addEventListener('xbuttonup', function(e) {
+        this.el.addEventListener("xbuttonup", function(e) {
           //Jump to pointed position
-          this.emit('teleportend')
-        })
+          this.emit("teleportend");
+        });
 
         //A-button Pressed
-        this.el.addEventListener('abuttondown', function(e) {
+        this.el.addEventListener("abuttondown", function(e) {
           //Start pointing position to teleport
-          this.emit('teleportstart')
-        })
+          this.emit("teleportstart");
+        });
 
         //A-button Released
-        this.el.addEventListener('abuttonup', function(e) {
+        this.el.addEventListener("abuttonup", function(e) {
           //Jump to pointed position
-          this.emit('teleportend')
-        })
+          this.emit("teleportend");
+        });
 
         //console.log(this);
       }, //
@@ -70,24 +70,24 @@
       //called every frame.
       tick: function() {
         if (!this.el.selectedObj) {
-          return
+          return;
         }
         if (!this.el.grip) {
-          return
+          return;
         }
         //Getting raycaster component which is attatched to ctlR or L
         //this.el means entity of ctlR or L in this function.
-        var ray = this.el.getAttribute('raycaster').direction
+        var ray = this.el.getAttribute("raycaster").direction;
         //setting tip of raycaster as 1.2m forward of controller.
-        var p = new THREE.Vector3(ray.x, ray.y, ray.z)
-        p.normalize()
-        p.multiplyScalar(1.2)
+        var p = new THREE.Vector3(ray.x, ray.y, ray.z);
+        p.normalize();
+        p.multiplyScalar(1.2);
         //Convert local position into world coordinate.
-        this.el.object3D.localToWorld(p)
+        this.el.object3D.localToWorld(p);
         //Move selected object to follow the tip of raycaster.
-        this.el.selectedObj.object3D.position.set(p.x, p.y, p.z)
+        this.el.selectedObj.object3D.position.set(p.x, p.y, p.z);
       }
-    })
+    });
   </script>
 
   <body>
