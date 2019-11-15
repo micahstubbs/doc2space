@@ -14,15 +14,16 @@ async function render() {
   //   .domain([0, blocks.length])
   //   .range([Math.PI, 2 * Math.PI]); // remember, angles in radians
 
+  const commonRange = [-12, 12]
   const xScale = d3
     .scaleLinear()
     .domain(d3.extent(data.map(d => d[xVariable])))
-    .range([-12, 12])
+    .range(commonRange)
 
   const zScale = d3
     .scaleLinear()
     .domain(d3.extent(data.map(d => d[zVariable])))
-    .range([-12, 12])
+    .range(commonRange)
 
   const letterPaperAspectRatio = 1.2941
   const paperWidth = 1.2 // 0.6
