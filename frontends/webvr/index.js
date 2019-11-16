@@ -5,7 +5,7 @@ async function render() {
   const xVariable = 'tsne-2d-one'
   const zVariable = 'tsne-2d-two'
   const labelVariable = 'label'
-  let dpi = 100
+  let dpi = 87
 
   // setup an arcScale for laying objects out
   // in a half circle
