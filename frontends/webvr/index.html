@@ -91,11 +91,10 @@
 
     const cameraRigOffset = new THREE.Vector3(-27, 0, 14)
 
-    AFRAME.registerComponent('foo', {
+    AFRAME.registerComponent('measureDistance', {
       init: function() {
         this.box = document.querySelector('a-box.demo')
         this.text = document.querySelector('a-text.demo')
-        // this.rig = document.getElementById('cameraRig')
       },
       tick: function() {
         let camPos = this.el.object3D.position
@@ -106,8 +105,9 @@
         let distance = offsetCamPos.distanceTo(boxPos)
 
         // console.log('camPos', camPos)
+        console.log('offset')
         // console.log('boxPos', boxPos)
-        this.text.setAttribute('value', distance)
+        this.text.setAttribute('value', `distance: ${distance}`)
       },
     })
   </script>
@@ -133,7 +133,7 @@
 
       <!-- end demo elements -->
       <a-entity id="cameraRig" position="-27 0 14" rotation="0 15 0">
-        <a-camera foo></a-camera>
+        <a-camera measureDistance></a-camera>
         <a-entity
           id="head"
           camera
