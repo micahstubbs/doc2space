@@ -1,6 +1,7 @@
 const fs = require('fs')
 const readline = require('readline')
 const path = require('path')
+const filenamify = require('filenamify')
 
 // check if data dir exists
 // if not, create it
@@ -70,7 +71,7 @@ dirs.forEach((dir, i) => {
     // console.log('dir', dir)
     files.forEach(file => {
       const fileExt = path.extname(file)
-      let newFileName = file
+      let newFileName = filenamify(file, { replacement: '-' })
       if (fileExt === '.pdf') {
         // if we have already seen a file with the same name
         // create a new file name for this file with an identifier appended
