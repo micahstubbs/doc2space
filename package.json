@@ -10,6 +10,7 @@
     "images": "node ./scripts/pdfs-to-images.js",
     "pdfs": "yarn copy:pdfs",
     "copy:pdfs": "node ./scripts/copy-pdfs-from-zotero-storage.js",
+    "clean": "yarn clean:csv",
     "clean:csv": "node ./scripts/clean-filenames.js"
   },
   "dependencies": {
