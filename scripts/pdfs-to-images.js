@@ -46,10 +46,13 @@ fs.readdir(`${dataDir}`, {}, (err, files) => {
         console.log(`image exists: ${dataDir}/${outFile}`)
       } catch (err) {
         // if not generate the image from the pdf
-        const command = `sh pdf-to-jpg-first-page.sh ${path.join(
+        const command = `sh ${path.join(
+          __dirname,
+          'pdf-to-jpg-first-page.sh'
+        )} ${path.join(dataDir, escapedFilename)} ${path.join(
           dataDir,
-          escapedFilename
-        )} ${path.join(dataDir, outFile)}`
+          outFile
+        )}`
         console.log(command)
         const child = exec(command, (error, stdout, stderr) => {
           if (stdout && String(stdout).length > 0) {
