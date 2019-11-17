@@ -88,28 +88,6 @@
         this.el.selectedObj.object3D.position.set(p.x, p.y, p.z)
       },
     })
-
-    const cameraRigOffset = new THREE.Vector3(-27, 0, 14)
-
-    AFRAME.registerComponent('measureDistance', {
-      init: function() {
-        this.box = document.querySelector('a-box.demo')
-        this.text = document.querySelector('a-text.demo')
-      },
-      tick: function() {
-        let camPos = this.el.object3D.position
-        // let rigPos = this.rig.object3D.position
-        let boxPos = this.box.object3D.position
-        let offsetCamPos = new THREE.Vector3(0, 0, 0)
-        offsetCamPos.addVectors(camPos, cameraRigOffset)
-        let distance = offsetCamPos.distanceTo(boxPos)
-
-        // console.log('camPos', camPos)
-        console.log('offset')
-        // console.log('boxPos', boxPos)
-        this.text.setAttribute('value', `distance: ${distance}`)
-      },
-    })
   </script>
 
   <body>
@@ -122,18 +100,7 @@
 
       <!--set the environment-->
       <a-entity environment="preset: grassland" playArea="12"></a-entity>
-      <!-- demo elements -->
-      <a-text position="1 1 0" color="black" class="demo"></a-text>
-      <a-box
-        position="0 0.5 0"
-        rotation="0 45 0"
-        color="#4CC3D9"
-        class="demo"
-      ></a-box>
-
-      <!-- end demo elements -->
       <a-entity id="cameraRig" position="-27 0 14" rotation="0 15 0">
-        <a-camera measureDistance></a-camera>
         <a-entity
           id="head"
           camera
