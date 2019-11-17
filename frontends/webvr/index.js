@@ -61,7 +61,7 @@ async function render() {
     .attr('material', d => {
       const fileExtPattern = new RegExp(/\.\w\w\w$/)
       const fileStem = d[labelVariable].replace(fileExtPattern, '')
-      const filename = `${fileStem}-${dpi}dpi.jpg`
+      const filename = `${fileStem}-${dpi}dpi-1024px.jpg`
       const cloudFilename = encodeURIComponent(filename)
       const localUrl = `${localDataDir}/${filename}`
       const cloudUrl = `${bucketUrl}/${cloudFilename}`
