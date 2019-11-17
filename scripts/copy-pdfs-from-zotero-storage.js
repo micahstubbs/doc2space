@@ -1,7 +1,7 @@
 const fs = require('fs')
 const readline = require('readline')
 const path = require('path')
-const filenamify = require('filenamify')
+const sanitizeFilename = require('./sanitize-filename')
 
 // check if data dir exists
 // if not, create it
@@ -71,20 +71,20 @@ dirs.forEach((dir, i) => {
     // console.log('dir', dir)
     files.forEach(file => {
       const fileExt = path.extname(file)
-      let newFileName = filenamify(file, { replacement: '-' })
+      let newFilename = sanitizeFilename(file)
       if (fileExt === '.pdf') {
         // if we have already seen a file with the same name
         // create a new file name for this file with an identifier appended
         if (filesHash[file]) {
-          newFileName = `${file.slice(0, -4)}-${i}${fileExt}`
-          console.log('newFileName', newFileName)
+          newFilename = `${newFilename.slice(0, -4)}-${i}${fileExt}`
+          console.log('newFilename', newFilename)
         }
         filesHash[file] = true
         // console.log('file', file)
 
         // copy this file to the dataDir
         const src = `${zoteroStorageDir}/${dir}/${file}`
-        const dest = `${dataDir}/${newFileName}`
+        const dest = `${dataDir}/${newFilename}`
         fs.copyFile(src, dest, {}, err => {
           if (err) console.log(`ERROR copying file ${src} to ${dest}`)
         })
