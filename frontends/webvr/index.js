@@ -1,11 +1,11 @@
 async function render() {
-  const data = await d3.csv('tsne-coords-labels-run-1.csv')
+  const data = await d3.csv('tsne-coords-labels-run-1-cleaned.csv')
   console.log('data', data)
 
   const xVariable = 'tsne-2d-one'
   const zVariable = 'tsne-2d-two'
-  const labelVariable = 'label'
-  let dpi = 87
+  const labelVariable = 'pdf'
+  let dpi = 600
 
   // setup an arcScale for laying objects out
   // in a half circle
@@ -59,7 +59,8 @@ async function render() {
       z: zScale(d[zVariable]),
     }))
     .attr('material', d => {
-      const fileStem = d[labelVariable].replace('.txt', '')
+      const fileExtPattern = new RegExp(/\.\w\w\w$/)
+      const fileStem = d[labelVariable].replace(fileExtPattern, '')
       const filename = `${fileStem}_${dpi}dpi.jpg`
       const cloudFilename = encodeURIComponent(filename)
       const localUrl = `${localDataDir}/${filename}`

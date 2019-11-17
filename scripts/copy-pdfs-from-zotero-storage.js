@@ -1,7 +1,7 @@
 const fs = require('fs')
 const readline = require('readline')
 const path = require('path')
-const sanitizeFilename = require('./sanitize-filename')
+const sanitizeFilename = require('./util/sanitize-filename')
 
 // check if data dir exists
 // if not, create it

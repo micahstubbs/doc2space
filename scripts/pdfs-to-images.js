@@ -1,7 +1,7 @@
 const fs = require('fs')
 const exec = require('child_process').exec
 const path = require('path')
-const writeJson = require('./writeJson.js')
+const writeJson = require('./util/writeJson.js')
 
 // image quality
 const minLegibleTitleDpi = 50
