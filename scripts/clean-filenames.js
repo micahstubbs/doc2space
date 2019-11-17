@@ -16,9 +16,7 @@ fs.createReadStream(inputPath)
   .pipe(csv())
   .on('data', row => {
     console.log(row)
-    row.pdf = sanitizeFilename(row.label)
-      .replace(/-\d+\.txt/, '.pdf')
-      .replace(/\.txt/, '.pdf')
+    row.pdf = sanitizeFilename(row.label).replace(/\.txt/, '.pdf')
     outputData.push(row)
   })
   .on('end', () => {
