@@ -12,8 +12,8 @@ const dpi = hiResDpi // 87 // 75 // 50 // 10 // 100 // 300
 const errorFiles = []
 
 // check if data dir exists
-const dataDir = '../data'
-const logDir = './logs'
+const dataDir = path.dirname('../data')
+const logDir = path.dirname('./logs')
 try {
   fs.accessSync(dataDir, fs.constants.F_OK)
   console.log(`${dataDir} exists`)
@@ -45,7 +45,10 @@ fs.readdir(`${dataDir}`, {}, (err, files) => {
         console.log(`image exists: ${dataDir}/${outFile}`)
       } catch (err) {
         // if not generate the image from the pdf
-        const command = `sh pdf-to-jpg-first-page.sh ${dataDir}/${escapedFilename} ${dataDir}/${outFile}`
+        const command = `sh pdf-to-jpg-first-page.sh ${path.join(
+          dataDir,
+          escapedFilename
+        )} ${path.join(dataDir, outFile)}`
         console.log(command)
         const child = exec(command, (error, stdout, stderr) => {
           if (stdout && String(stdout).length > 0) {
@@ -63,5 +66,8 @@ fs.readdir(`${dataDir}`, {}, (err, files) => {
     }
   })
 
-  writeJson(errorFiles, `${logDir}/pdfs-to-images-error-files.json`)
+  writeJson(
+    errorFiles,
+    `${path.join(logDir, 'pdfs-to-images-error-files.json')}`
+  )
 })

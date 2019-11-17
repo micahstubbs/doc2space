@@ -1,8 +1,9 @@
 const fs = require('fs')
 const exec = require('child_process').exec
+const path = require('path')
 
 // check if data dir exists
-const dataDir = '../data'
+const dataDir = path.dirname('../data')
 try {
   fs.accessSync(dataDir, fs.constants.F_OK)
   console.log(`${dataDir} exists`)

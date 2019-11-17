@@ -6,6 +6,9 @@
   "author": "micahstubbs <micah.stubbs@gmail.com>",
   "license": "Apache-2.0",
   "private": false,
+  "scripts": {
+    "images": "node ./scripts/pdfs-to-images.js"
+  },
   "dependencies": {
     "@google-cloud/storage": "^4.1.0",
     "jsonfile": "^5.0.0"
