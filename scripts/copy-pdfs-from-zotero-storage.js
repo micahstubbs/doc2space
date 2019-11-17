@@ -73,21 +73,25 @@ dirs.forEach((dir, i) => {
       const fileExt = path.extname(file)
       let newFilename = sanitizeFilename(file)
       if (fileExt === '.pdf') {
-        // if we have already seen a file with the same name
-        // create a new file name for this file with an identifier appended
+        // only copy first file that we see
         if (filesHash[file]) {
-          newFilename = `${newFilename.slice(0, -4)}-${i}${fileExt}`
-          console.log('newFilename', newFilename)
-        }
-        filesHash[file] = true
-        // console.log('file', file)
+          // do nothing
+          //
+          // if we have already seen a file with the same name
+          // create a new file name for this file with an identifier appended
+          // newFilename = `${newFilename.slice(0, -4)}-${i}${fileExt}`
+          // console.log('newFilename', newFilename)
+        } else {
+          filesHash[file] = true
+          // console.log('file', file)
 
-        // copy this file to the dataDir
-        const src = `${zoteroStorageDir}/${dir}/${file}`
-        const dest = `${dataDir}/${newFilename}`
-        fs.copyFile(src, dest, {}, err => {
-          if (err) console.log(`ERROR copying file ${src} to ${dest}`)
-        })
+          // copy this file to the dataDir
+          const src = `${zoteroStorageDir}/${dir}/${file}`
+          const dest = `${dataDir}/${newFilename}`
+          fs.copyFile(src, dest, {}, err => {
+            if (err) console.log(`ERROR copying file ${src} to ${dest}`)
+          })
+        }
       }
     })
   })
