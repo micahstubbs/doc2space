@@ -9,8 +9,8 @@ dpi=${3}
 # gs -q -o name_200px_p%04d.jpg -sDEVICE=jpeg -dPDFFitPage -g200x400 -dFirstPage=1 -dLastPage=1 "${infile}"
 
 # To get higher quality JPEGs (but also bigger-in-size ones) with a 
-# resolution of 300 dpi use the following command:
-gs -q -o "${outfile}" -sDEVICE=jpeg -dJPEGQ=100 -r"${dpi}" -dFirstPage=1 -dLastPage=1 "${infile}"
+# resolution of ${dpi} dpi use the following command:
+gs -q -o "${outfile}" -sDEVICE=jpeg -dJPEGQ=100 -r600 -dFirstPage=1 -dLastPage=1 "${infile}" # -r"${dpi}"
 
 echo "wrote ${outfile}"
 
