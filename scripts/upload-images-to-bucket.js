@@ -12,11 +12,11 @@ function uploadToBucket({
   bucketName,
   projectId,
   keyFilename,
-  uploadFilename
+  uploadFilename,
 }) {
   const gcs = new Storage({
     projectId,
-    keyFilename
+    keyFilename,
   })
   const bucket = gcs.bucket(bucketName)
   bucket.upload(uploadFilename, function(err, file) {
@@ -25,7 +25,7 @@ function uploadToBucket({
 }
 
 // check if data dir exists
-const dataDir = '../data'
+const dataDir = path.join(__dirname, '../data')
 try {
   fs.accessSync(dataDir, fs.constants.F_OK)
   console.log(`${dataDir} exists`)
@@ -50,7 +50,7 @@ fs.readdir(`${dataDir}`, {}, (err, files) => {
         bucketName,
         projectId,
         keyFilename,
-        uploadFilename
+        uploadFilename,
       })
     }
   })

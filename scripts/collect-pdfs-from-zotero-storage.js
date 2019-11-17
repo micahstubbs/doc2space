@@ -4,7 +4,7 @@ const path = require('path')
 
 // check if data dir exists
 // if not, create it
-const dataDir = '../data'
+const dataDir = path.join(__dirname, '../data')
 try {
   fs.accessSync(dataDir, fs.constants.F_OK)
   console.log(`${dataDir} exists`)
@@ -27,7 +27,7 @@ let zoteroStorageDir = process.env.ZOTERO_STORAGE
 if (!zoteroStorageDir) {
   const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
   })
 
   rl.question(
@@ -75,7 +75,7 @@ dirs.forEach((dir, i) => {
         // if we have already seen a file with the same name
         // create a new file name for this file with an identifier appended
         if (filesHash[file]) {
-          newFileName = `${file.slice(0,-4)}-${i}${fileExt}`
+          newFileName = `${file.slice(0, -4)}-${i}${fileExt}`
           console.log('newFileName', newFileName)
         }
         filesHash[file] = true
@@ -86,7 +86,7 @@ dirs.forEach((dir, i) => {
         const dest = `${dataDir}/${newFileName}`
         fs.copyFile(src, dest, {}, err => {
           if (err) console.log(`ERROR copying file ${src} to ${dest}`)
-        }) 
+        })
       }
     })
   })

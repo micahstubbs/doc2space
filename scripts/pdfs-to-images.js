@@ -12,8 +12,9 @@ const dpi = hiResDpi // 87 // 75 // 50 // 10 // 100 // 300
 const errorFiles = []
 
 // check if data dir exists
-const dataDir = path.dirname('../data')
-const logDir = path.dirname('./logs')
+const dataDir = path.join(__dirname, '../data')
+const logDir = path.join(__dirname, './logs')
+
 try {
   fs.accessSync(dataDir, fs.constants.F_OK)
   console.log(`${dataDir} exists`)
