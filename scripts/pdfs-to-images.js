@@ -39,12 +39,11 @@ fs.readdir(`${dataDir}`, {}, (err, files) => {
       const fileStem = escapedFilename.replace('.pdf', '')
       const outFile = `${fileStem}-${dpi}dpi.jpg`
 
-      try {
-        // first check to see if the image already exists
-        const currentPath = `${dataDir}/${outFile}`
-        fs.accessSync(currentPath)
+      // first check to see if the image already exists
+      const currentPath = `${dataDir}/${outFile}`
+      if (fs.existsSync(currentPath)) {
         console.log(`image exists: ${dataDir}/${outFile}`)
-      } catch (err) {
+      } else {
         // if not generate the image from the pdf
         const command = `sh ${path.join(
           __dirname,
