@@ -78,10 +78,10 @@
         //Getting raycaster component which is attatched to ctlR or L
         //this.el means entity of ctlR or L in this function.
         var ray = this.el.getAttribute('raycaster').direction
-        //setting tip of raycaster as 1.2m forward of controller.
+        //set the tip of raycaster 0.3m forward of controller.
         var p = new THREE.Vector3(ray.x, ray.y, ray.z)
         p.normalize()
-        p.multiplyScalar(1.2)
+        p.multiplyScalar(03)
         //Convert local position into world coordinate.
         this.el.object3D.localToWorld(p)
         //Move selected object to follow the tip of raycaster.
