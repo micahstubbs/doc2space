@@ -9,5 +9,6 @@ module.exports = filename => {
   const sanitizedFileStem = filenamify(fileStem, { replacement: '-' })
     .replace(/[\s\(\))\[\]\.]/g, '-')
     .replace(/-+/g, '-')
+    .replace(/-$/, '')
   return `${sanitizedFileStem}${extName}`
 }

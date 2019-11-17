@@ -37,7 +37,7 @@ fs.readdir(`${dataDir}`, {}, (err, files) => {
       // run pdf to text on that file
       const escapedFilename = file.replace(/(\s+)/g, '\\$1')
       const fileStem = escapedFilename.replace('.pdf', '')
-      const outFile = `${fileStem}_${dpi}dpi.jpg`
+      const outFile = `${fileStem}-${dpi}dpi.jpg`
 
       try {
         // first check to see if the image already exists
