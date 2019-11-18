@@ -11,7 +11,8 @@
     "pdfs": "yarn copy:pdfs",
     "copy:pdfs": "node ./scripts/copy-pdfs-from-zotero-storage.js",
     "clean": "yarn clean:csv",
-    "clean:csv": "node ./scripts/clean-filenames.js"
+    "clean:csv": "node ./scripts/clean-filenames.js",
+    "deploy": "gcloud compute scp --recurse frontends/webvr ubuntu@homepage:~/workspace/doc2space/frontends/"
   },
   "dependencies": {
     "@google-cloud/storage": "^4.1.0",

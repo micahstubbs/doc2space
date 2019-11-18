@@ -1,6 +1,6 @@
 [
   {
-    "origin": ["http://localhost:8080"],
+    "origin": ["http://localhost:8080", "https://doc2space.micah.fyi/"],
     "responseHeader": ["Content-Type"],
     "method": ["GET", "HEAD", "DELETE"],
     "maxAgeSeconds": 3600
