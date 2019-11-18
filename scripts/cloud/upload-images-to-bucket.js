@@ -25,7 +25,7 @@ function uploadToBucket({
 }
 
 // check if data dir exists
-const dataDir = path.join(__dirname, '../data')
+const dataDir = path.join(__dirname, '../../data')
 try {
   fs.accessSync(dataDir, fs.constants.F_OK)
   console.log(`${dataDir} exists`)
