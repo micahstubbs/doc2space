@@ -67,7 +67,7 @@ async function render() {
       const cloudUrl = `${bucketUrl}/${cloudFilename}`
 
       return {
-        src: `url(${localUrl})`,
+        src: `url(${cloudUrl})`,
       }
     })
 }
