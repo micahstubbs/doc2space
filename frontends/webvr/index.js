@@ -67,14 +67,18 @@ async function render() {
       const cloudUrl = `${bucketUrl}/${cloudFilename}`
 
       return {
-        src: `url(${cloudUrl})`,
+        src: `url(${localUrl})`,
       }
     })
 }
 
 const sceneEl = document.querySelector('a-scene')
 if (sceneEl.hasLoaded) {
+  detectControllers()
   render()
 } else {
-  sceneEl.addEventListener('loaded', render)
+  sceneEl.addEventListener('loaded', () => {
+    detectControllers()
+    render()
+  })
 }
