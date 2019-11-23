@@ -64,6 +64,22 @@
           this.emit('teleportend')
         })
 
+        //
+        // trackpad teleport with Vive Controllers
+        //
+
+        //trackpad Pressed
+        this.el.addEventListener('trackpaddown', function(e) {
+          //Start pointing position to teleport
+          this.emit('teleportstart')
+        })
+
+        //trackpad Released
+        this.el.addEventListener('trackpadup', function(e) {
+          //Jump to pointed position
+          this.emit('teleportend')
+        })
+
         //console.log(this);
       }, //
 
