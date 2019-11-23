@@ -64,6 +64,22 @@
           this.emit('teleportend')
         })
 
+        //
+        // trackpad teleport with Vive Controllers
+        //
+
+        //trackpad Pressed
+        this.el.addEventListener('trackpaddown', function(e) {
+          //Start pointing position to teleport
+          this.emit('teleportstart')
+        })
+
+        //trackpad Released
+        this.el.addEventListener('trackpadup', function(e) {
+          //Jump to pointed position
+          this.emit('teleportend')
+        })
+
         //console.log(this);
       }, //
 
@@ -118,6 +134,7 @@
         >
           <a-text
             value="\nGrip: Grab object\nX: Teleport"
+            id="ctlLText"
             position="0 0.05 0"
             rotation="-90 0 0"
             scale="0.1 0.1 0.1"
@@ -134,6 +151,7 @@
         >
           <a-text
             value="\nGrip: Grab object\nA: Teleport"
+            id="ctlRText"
             position="0 0.05 0"
             rotation="-90 0 0"
             scale="0.1 0.1 0.1"
@@ -144,6 +162,7 @@
       </a-entity>
     </a-scene>
     <script src="./secrets.js"></script>
+    <script src="./detect-controllers.js"></script>
     <script src="./index.js"></script>
   </body>
 </html>

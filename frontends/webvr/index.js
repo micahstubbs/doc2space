@@ -74,7 +74,11 @@ async function render() {
 
 const sceneEl = document.querySelector('a-scene')
 if (sceneEl.hasLoaded) {
+  detectControllers()
   render()
 } else {
-  sceneEl.addEventListener('loaded', render)
+  sceneEl.addEventListener('loaded', () => {
+    detectControllers()
+    render()
+  })
 }
