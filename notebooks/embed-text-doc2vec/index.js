@@ -14,7 +14,7 @@ async function draw() {
   const yAxisLabel = ''
   const xAxisLabel = ''
   const pageTitle = '20D to 2D with t-SNE'
-  const title = 'doc2vec data space on my Zotero papers'
+  const title = 'Zotero papers doc2vec data space'
   const subtitle = '20D to 2D with t-SNE'
 
   const colorPalette = [
